@@ -4,25 +4,44 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
+
+    public enum CameraState
+    {
+        ON,
+        OFF
+    }
     public Transform[] targets;
     public Vector3 offset;
     public float smoothTime = 0.5f;
     public Camera cam;
     private Vector3 velocity;
-
+    public CameraState state;
     public float minZoom = 7f;
     public float maxZoom = 3f;
 
     private void Start()
     {
+        state = CameraState.ON;
         cam = GetComponent<Camera>();
     }
     private void LateUpdate()
     {
+        if (state == CameraState.ON)
+        {
+            for (int i = 0; i < targets.Length; i++)
+            {
+                if (targets[i] == null)
+                {   
+                    state = CameraState.OFF;
+                }
+            }
+
         if (targets.Length == 0) return;
 
         Move();
         Zoom();
+        }
+        
     }
 
     void Zoom()
@@ -53,6 +72,8 @@ public class CameraScript : MonoBehaviour
 
     Vector3 GetCenterPoint()
     {
+
+        
         if (targets.Length == 1)
         {
             return targets[0].position;
