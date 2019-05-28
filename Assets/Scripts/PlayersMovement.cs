@@ -33,7 +33,7 @@ public class PlayersMovement : MonoBehaviour
     public BoxCollider2D floor;
     public BoxCollider2D playerCollider; 
     public states state;
-    float checkColl;
+
     
 
     // Start is called before the first frame update
@@ -41,7 +41,7 @@ public class PlayersMovement : MonoBehaviour
     private void Awake()
     {
         canDJ = true;
-        checkColl = 0;
+
         canGround = true;
     	state = states.MOVE;
         isJumping = false;
@@ -276,7 +276,7 @@ public class PlayersMovement : MonoBehaviour
             transform.parent = null;
         }
 
-        checkColl = 0;
+
     }
     
 }

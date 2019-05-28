@@ -8,34 +8,31 @@ public class PlayersHabilities : MonoBehaviour
     public Transform bulletSpawnLeft;
     public Transform bulletSpawnRight;  
     public GameObject currentLever;
-    public PlayersMovement pm;
+    public HerosMovement hm;
     public string fireButton;
     public string pickUpButton;
     public string elementButton;
     public string useButton;
-    bool lever;
-    float delay;
-    public float timeBtwBullets;
-    public bool hasWeapon;
-    public float j;
+    bool _onLever;
+    float _delay;
+    public float timeBtwBullets;      
     public float elementalDamage;
     public float damage;
 
     // Start is called before the first frame update
     void Start()
     {        
-        pm = GetComponent<PlayersMovement>();
-        fireButton += pm.player;
-        pickUpButton += pm.player;
-        elementButton += pm.player;
-        useButton += pm.player;
-        delay = 0;
+        hm = GetComponent<HerosMovement>();
+        fireButton += hm.player;
+        pickUpButton += hm.player;
+        elementButton += hm.player;
+        useButton += hm.player;
+        _delay = 0;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        j = Vector3.left.magnitude;
+    {        
         UseLever();
         Shoot(GetBulletSpawn());            
     }
@@ -43,7 +40,7 @@ public class PlayersHabilities : MonoBehaviour
     public Transform GetBulletSpawn()
     {
         Transform a = null;
-        if (pm.GetFacing() == Vector3.left)
+        if (hm.GetFacing() == Vector3.left)
         {
             a = bulletSpawnLeft;
         }
@@ -57,7 +54,7 @@ public class PlayersHabilities : MonoBehaviour
     
     private void UseLever()
     {
-        if (lever)
+        if (_onLever)
         {
             if (Input.GetButtonDown(pickUpButton))
             {
@@ -73,19 +70,19 @@ public class PlayersHabilities : MonoBehaviour
         {
             SpawnBullets(spawn);
         }
-        delay += Time.deltaTime;
+        _delay += Time.deltaTime;
     }
 
     public void SpawnBullets(Transform bulletSpawn)
     {
-        if (delay > timeBtwBullets)
+        if (_delay > timeBtwBullets)
         {
             GameObject tempBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);          
             Bullet bulletScript = tempBullet.GetComponent<Bullet>();
             bulletScript.damage = damage;
-            bulletScript.direction = pm.GetFacing();
+            bulletScript.direction = hm.GetFacing();
             bulletScript.time = 3;
-            delay = 0;
+            _delay = 0;
         }
     }
 
@@ -94,7 +91,7 @@ public class PlayersHabilities : MonoBehaviour
 
         if (collision.gameObject.layer == 9)
         {
-            lever = true;
+            _onLever = true;
             currentLever = collision.gameObject;
         }
 
@@ -104,58 +101,9 @@ public class PlayersHabilities : MonoBehaviour
     {
         if (collision.gameObject.layer == 9)
         {
-            lever = false;
+            _onLever = false;
             currentLever = null;
         }
-    }
-
-
-    /*private void InteractWithItems()
-    {
-        if (Input.GetButton(pickUpButton + pm.player))
-        {
-            switchWeaponDelay += Time.deltaTime;
-        }
-        else switchWeaponDelay = 0;
-
-        if (!hasWeapon)
-        {
-            if (Input.GetButtonDown(pickUpButton + pm.player))
-            {
-                PickUpWeapon();
-            }
-        }
-        else if (hasWeapon)
-        {
-            if (switchWeaponDelay > 0.4 && Input.GetButton(pickUpButton + pm.player))
-            {
-                DropWeapon();
-                PickUpWeapon();
-            }
-        }      
-           
-        
-    }
-
-   
-
-    private void DropWeapon()
-    {
-        hasWeapon = false;
-        if (transform.childCount > 0)
-        {
-            transform.GetChild(0).parent = null;
-        }
-    }
-
-    private void PickUpWeapon()
-    {
-        if (pickeableWeapon != null)
-        {
-            hasWeapon = true;
-            currentWeapon = pickeableWeapon.GetComponent<Weapons>();
-            pickeableWeapon = null;
-            currentWeapon.PickedUp(transform, pm.facing);
-        }
-    }*/
+    }   
+  
 }
