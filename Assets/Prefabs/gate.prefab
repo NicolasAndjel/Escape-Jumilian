@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5952591739794057}
   - component: {fileID: 5067554516348455097}
   - component: {fileID: 7201968085881049564}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: gate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2487128531835608678}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 36b419dc840d33745bf9a2b92e2f7a37, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
