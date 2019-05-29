@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Activables : MonoBehaviour
 {
+    public bool UseButtonsOnly;
+    public Panels panel;
     public GameObject[] interruptors;
     public Interruptor[] pads;
     public bool active;
@@ -11,29 +13,45 @@ public class Activables : MonoBehaviour
 
     public virtual void Start()
     {
-        count = 0;
-        pads = new Interruptor[interruptors.Length];
-        for (int i = 0; i < pads.Length; i++)
+        if (UseButtonsOnly)
         {
-            pads[i] = interruptors[i].transform.GetChild(0).GetComponent<Interruptor>();
-        }
-        interruptors = null;
+            count = 0;
+            pads = new Interruptor[interruptors.Length];
+            for (int i = 0; i < pads.Length; i++)
+            {
+                pads[i] = interruptors[i].transform.GetChild(0).GetComponent<Interruptor>();
+            }
+            interruptors = null;
+        }       
     }
+
+
     public virtual void Update()
     {
-        for (int i = 0; i < pads.Length; i++)
+        if (UseButtonsOnly)
         {
-            if (!pads[i].active)
+            for (int i = 0; i < pads.Length; i++)
             {
-                count = 0;
-                return;
+                if (!pads[i].active)
+                {
+                    count = 0;
+                }
+                else if (pads[i].active)
+                {
+                    count++;
+                }
             }
-            else count++;
-        }
 
-        if (count == pads.Length)
+            if (count == pads.Length)
+            {
+                active = true;
+            }
+            else active = false;
+        }
+        else if (panel.IsActive())
         {
             active = true;
         }
+        
     }
 }
