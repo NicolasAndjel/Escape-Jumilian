@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\HabilitiesOne.cs" />
     <Compile Include="Assets\Scripts\HabilitiesTwo.cs" />
     <Compile Include="Assets\Scripts\HerosMovement.cs" />
+    <Compile Include="Assets\Scripts\Interruptor.cs" />
     <Compile Include="Assets\Scripts\Oxygen.cs" />
     <Compile Include="Assets\Scripts\OxygenHeroMovement.cs" />
     <Compile Include="Assets\Scripts\Panels.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\Scripts\PlayersMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerTwo.cs" />
     <Compile Include="Assets\Scripts\Shotgun.cs" />
+    <Compile Include="Assets\Scripts\Steam.cs" />
     <Compile Include="Assets\Scripts\Weapons.cs" />
     <Compile Include="Assets\Scripts\Wind.cs" />
     <None Include="Assets\2D game kit.txt" />

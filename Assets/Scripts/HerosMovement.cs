@@ -7,8 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
 public class HerosMovement : MonoBehaviour
-{
-    
+{    
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator anim;
@@ -21,11 +20,13 @@ public class HerosMovement : MonoBehaviour
     public KeyCode jumpButton;
     public float counterWindForce;
     public KeyCode counterWindButton;
+    public float knockUpAmount;
     public bool isOnAir;
     public bool canGround;
     public bool grounded;
-    public bool onWind;
-    private float direction;
+    public bool onWind;    
+    [HideInInspector]
+    public float direction;
     private Vector3 finalSpeed;
     private Vector3 lastFacing;
     
@@ -33,6 +34,7 @@ public class HerosMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      
         lastFacing = Vector3.right;
         horizontalAxisName = horizontalAxisName + player;
         Debug.Log(horizontalAxisName);
@@ -45,8 +47,7 @@ public class HerosMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {        
         direction = Input.GetAxis(horizontalAxisName);
                 
 
@@ -144,12 +145,20 @@ public class HerosMovement : MonoBehaviour
         }
     }
 
+    public void KnockUp()
+    {
+        rb.velocity = Vector3.zero;
+        Vector3 force = Vector3.up * knockUpAmount;
+        rb.AddForce(force, ForceMode2D.Impulse);       
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 20)
         {
             onWind = true;
         }       
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -162,25 +171,27 @@ public class HerosMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);        
+        Debug.Log(collision);        
         
 
-        if (collision.gameObject.layer == 13)
+        if (collision.gameObject.layer == 13 || collision.gameObject.layer == 22)
         {
             foreach(ContactPoint2D hitPos in collision.contacts)
             {
                 if (hitPos.normal.y > 0)
                 {
                     grounded = true;
+                  
                 }
                 else grounded = false;
             }
-        }
+        }        
 
         if (collision.gameObject.layer == 10)
         {           
             transform.SetParent(collision.transform);
             grounded = true;
+          
         }
 
     }
@@ -190,6 +201,7 @@ public class HerosMovement : MonoBehaviour
         if ((collision.gameObject.layer == 13) || (collision.gameObject.layer == 10))
         {
             grounded = true;
+            
         }
     }
 
