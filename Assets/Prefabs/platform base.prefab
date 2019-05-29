@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1019348309175314199}
   - component: {fileID: 543983813188459163}
   m_Layer: 10
-  m_Name: platform base
+  m_Name: platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,18 +99,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6386430a51f199041982ba7f654dac36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseButtonsOnly: 1
-  panel: {fileID: 0}
-  interruptors: []
-  pads: []
-  active: 0
   speed: 1
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
   currentWp: 0
   direction: 1
-  on: 0
+  distance: {x: 0, y: 0, z: 0}
 --- !u!61 &7504948990764755637
 BoxCollider2D:
   m_ObjectHideFlags: 0
