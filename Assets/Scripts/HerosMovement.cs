@@ -3,39 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
 public class HerosMovement : MonoBehaviour
 {
+    
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator anim;
     public string player;
     public string horizontalAxisName;
     public float speed;
+    public float gravity;
     public float jumpForce;
+    public bool enableCounterWind;
     public KeyCode jumpButton;
+    public float counterWindForce;
+    public KeyCode counterWindButton;
     public bool isOnAir;
     public bool canGround;
     public bool grounded;
-
-
-
-
+    public bool onWind;
+    private float direction;
+    private Vector3 finalSpeed;
+    private Vector3 lastFacing;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        horizontalAxisName = "LeftstickhorizontalP1";
+        lastFacing = Vector3.right;
+        horizontalAxisName = horizontalAxisName + player;
+        Debug.Log(horizontalAxisName);
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        rb.gravityScale = gravity;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis(horizontalAxisName);
+        
+        direction = Input.GetAxis(horizontalAxisName);
+                
+
 
         if (Input.GetKeyDown(jumpButton))
         {
@@ -44,9 +58,14 @@ public class HerosMovement : MonoBehaviour
             Jump();
         }
 
-        SetFacing(horizontal);
+        if (enableCounterWind)
+        {
+            CounterWind();
+        }
 
-        Move(horizontal);
+        SetFacing(direction);
+
+        Move(direction);
         
 
         //anim.SetFloat("WalkSpeed", Mathf.Abs(horizontal));
@@ -74,76 +93,107 @@ public class HerosMovement : MonoBehaviour
         else if (horizontal > 0)
         {
             sr.flipX = false;
-        }
+        }        
     }
 
-    public Vector3 GetFacing(Vector3 direction)
+    public Vector3 GetFacing()
     {
         Vector3 facing = Vector3.zero;
-        if (direction.x < 0)
+        if (direction < 0)
         {
             facing = Vector3.left;
+            lastFacing = facing;
         }
-        else if (direction.x > 0)
+        else if (direction > 0)
         {
             facing = Vector3.right;
+            lastFacing = facing;
+        }
+        else if (direction == 0)
+        {
+            facing = lastFacing;
         }
         return facing;
     }
 
     private void Move(float horizontal)
     {
-        Vector3 finalSpeed = new Vector3(horizontal * speed, rb.velocity.y, 0);
+        finalSpeed = new Vector3(horizontal * speed, rb.velocity.y, 0);
         rb.velocity = finalSpeed;
     }
 
-    void Jump()
+    private void Jump()
     {
-        rb.velocity = Vector3.zero;
-        rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+        if (grounded)
+        {
+            rb.velocity = Vector3.zero;
+            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+            grounded = false;
+        }
+    
+    }
+
+    private void CounterWind()
+    {
+        if (!grounded && onWind)
+        {
+            if (Input.GetKey(counterWindButton))
+            {
+                rb.AddForce(Vector3.down * counterWindForce, ForceMode2D.Impulse);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 20)
+        {
+            onWind = true;
+        }       
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 20)
+        {
+            onWind = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
+        Debug.Log(collision.gameObject.name);        
+        
+
         if (collision.gameObject.layer == 13)
         {
-            foreach (ContactPoint2D hitPos in collision.contacts)
+            foreach(ContactPoint2D hitPos in collision.contacts)
             {
-
-                Debug.Log(hitPos.normal);
-                if (((hitPos.normal.x > 0) || (hitPos.normal.x < 0) || (hitPos.normal.y < 0)) && (!grounded))
+                if (hitPos.normal.y > 0)
                 {
-                    canGround = false;
+                    grounded = true;
                 }
-                else canGround = true;
+                else grounded = false;
             }
-            if (canGround)
-            {
-                grounded = true;
-            }            
         }
 
         if (collision.gameObject.layer == 10)
-        {
-            foreach (ContactPoint2D hitPos in collision.contacts)
-            {
-                Debug.Log(hitPos.normal);
-                if (((hitPos.normal.x > 0) || (hitPos.normal.x < 0) || (hitPos.normal.y < 0)) && (!grounded))
-                {
-                    canGround = false;
-                }
-                else canGround = true;
-            }
-            if (canGround)
-            {
-                transform.SetParent(collision.transform);
-                grounded = true;
-            }
-
+        {           
+            transform.SetParent(collision.transform);
+            grounded = true;
         }
 
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if ((collision.gameObject.layer == 13) || (collision.gameObject.layer == 10))
+        {
+            grounded = true;
+        }
+    }
+
+
 
     private void OnCollisionExit2D(Collision2D collision)
     {

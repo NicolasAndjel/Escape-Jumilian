@@ -104,8 +104,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902395052095442713}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.671, y: -0.0036656752, z: 0}
-  m_LocalScale: {x: 4.692634, y: 1.0060571, z: 1}
+  m_LocalPosition: {x: -8.242, y: -0.0036656752, z: 0}
+  m_LocalScale: {x: 6.748008, y: 1.0060571, z: 1}
   m_Children: []
   m_Father: {fileID: 417174533741438563}
   m_RootOrder: 1
@@ -168,8 +168,9 @@ GameObject:
   m_Component:
   - component: {fileID: 417174533741438563}
   - component: {fileID: 8477002242896447542}
+  - component: {fileID: 6562233883527446170}
   m_Layer: 13
-  m_Name: floorNedgeRight
+  m_Name: floorNStrongEdge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +183,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6315264689171654337}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.16, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 0.4910258, z: 1}
   m_Children:
@@ -204,7 +205,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -5.160554, y: 0}
+  m_Offset: {x: -5.4726014, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -215,5 +216,31 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.702751, y: 1.1895449}
+  m_Size: {x: 12.078656, y: 1.1895449}
+  m_EdgeRadius: 0
+--- !u!61 &6562233883527446170
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6315264689171654337}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 36b419dc840d33745bf9a2b92e2f7a37, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.91778946, y: 0.00007879734}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.68183136, y: 1.1891646}
   m_EdgeRadius: 0

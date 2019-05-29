@@ -37,6 +37,10 @@ public class PlayerElement : MonoBehaviour
 
     public void Refill()
     {
+        if (otherPlayerDm == null)
+        {
+            return;
+        }
         distance = Vector3.Distance(otherPlayerDm.position, transform.position);
         if (distance < 0.3)
         {
@@ -70,7 +74,7 @@ public class PlayerElement : MonoBehaviour
             GameObject tempBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
             Bullet bulletScript = tempBullet.GetComponent<Bullet>();
             bulletScript.damage = ph.elementalDamage;
-            bulletScript.direction = ph.pm.GetFacing();
+            bulletScript.direction = ph.hm.GetFacing();
             bulletScript.time = 3;
             delay = 0;
         }

@@ -1006,7 +1006,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Axes.Array.data[16].gravity
-    value: 0
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Axes.Array.data[16].dead
@@ -1066,7 +1066,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Axes.Array.data[17].gravity
-    value: 0
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Axes.Array.data[17].dead
@@ -1366,7 +1366,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Axes.Array.data[22].gravity
-    value: 0
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Axes.Array.data[22].dead
@@ -1426,15 +1426,15 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Axes.Array.data[23].gravity
-    value: 0
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Axes.Array.data[23].dead
-    value: 0
+    value: 0.001
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Axes.Array.data[23].sensitivity
-    value: 0
+    value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Axes.Array.data[23].snap

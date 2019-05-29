@@ -24,10 +24,10 @@ public class CameraScript : MonoBehaviour
         state = CameraState.ON;
         cam = GetComponent<Camera>();
     }
+
     private void LateUpdate()
     {
-        if (state == CameraState.ON)
-        {
+        
             for (int i = 0; i < targets.Length; i++)
             {
                 if (targets[i] == null)
@@ -35,11 +35,12 @@ public class CameraScript : MonoBehaviour
                     state = CameraState.OFF;
                 }
             }
+        if (state == CameraState.ON)
+        {
+            if (targets.Length == 0) return;
 
-        if (targets.Length == 0) return;
-
-        Move();
-        Zoom();
+            Move();
+            Zoom();
         }
         
     }
@@ -72,7 +73,6 @@ public class CameraScript : MonoBehaviour
 
     Vector3 GetCenterPoint()
     {
-
         
         if (targets.Length == 1)
         {
