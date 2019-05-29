@@ -37,7 +37,7 @@ public class Interruptor : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 8)
+        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 19)
             rb.gravityScale = -1;
         if (collision.gameObject.layer == 4)
         {
