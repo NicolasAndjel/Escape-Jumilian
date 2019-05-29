@@ -13,7 +13,7 @@ public class PlayersHabilities : MonoBehaviour
     public string pickUpButton;
     public string elementButton;
     public string useButton;
-    bool _onLever;
+
     float _delay;
     public float timeBtwBullets;      
     public float elementalDamage;
@@ -33,7 +33,7 @@ public class PlayersHabilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
-        UseLever();
+
         Shoot(GetBulletSpawn());            
     }
    
@@ -49,20 +49,8 @@ public class PlayersHabilities : MonoBehaviour
             a = bulletSpawnRight;            
         }
         return a;
-    }
-
+    }    
     
-    private void UseLever()
-    {
-        if (_onLever)
-        {
-            if (Input.GetButtonDown(pickUpButton))
-            {
-                currentLever.gameObject.GetComponent<Panels>().InstantOpen();
-            }
-        }
-       
-    }
 
     private void Shoot(Transform spawn)
     {   
@@ -91,7 +79,6 @@ public class PlayersHabilities : MonoBehaviour
 
         if (collision.gameObject.layer == 9)
         {
-            _onLever = true;
             currentLever = collision.gameObject;
         }
 
@@ -101,7 +88,6 @@ public class PlayersHabilities : MonoBehaviour
     {
         if (collision.gameObject.layer == 9)
         {
-            _onLever = false;
             currentLever = null;
         }
     }   
