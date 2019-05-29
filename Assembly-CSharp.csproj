@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\Damaggeable.cs" />
     <Compile Include="Assets\Scripts\Doors.cs" />
+    <Compile Include="Assets\Scripts\ElementalActivator.cs" />
     <Compile Include="Assets\Scripts\EnemiesHabilities.cs" />
     <Compile Include="Assets\Scripts\EnemiesMovement.cs" />
     <Compile Include="Assets\Scripts\EnemySpawner.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets\Scripts\PlayerTwo.cs" />
     <Compile Include="Assets\Scripts\Shotgun.cs" />
     <Compile Include="Assets\Scripts\Steam.cs" />
+    <Compile Include="Assets\Scripts\Vent.cs" />
     <Compile Include="Assets\Scripts\Weapons.cs" />
     <Compile Include="Assets\Scripts\Wind.cs" />
     <None Include="Assets\2D game kit.txt" />
