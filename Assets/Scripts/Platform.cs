@@ -2,47 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Platform : MonoBehaviour
+public class Platform : Activables
 {     
     public float speed;  
     public Transform[] waypoints;
     public int currentWp;
     public int direction;
-    
+    public bool on;
     
 
 	// Use this for initialization
-	public virtual void Start ()
-    {        
+	public override void Start ()
+    {
+        base.Start();
+        on = true;
         direction = 1;        
 	}
 
     // Update is called once per frame
-    public virtual void Update ()
+    public override void Update ()
     {
+        base.Update();
         Move();       
 	}
 
     public void Move()
     {
-        Vector3 distance = waypoints[currentWp].position - transform.position;
-
-        if (distance.magnitude > speed * Time.deltaTime)
+        if (active)
         {
-            transform.position += distance.normalized * speed * Time.deltaTime;
-        }
-        else
-        {
-            transform.position = waypoints[currentWp].position;
-            currentWp += direction;
+            Vector3 distance = waypoints[currentWp].position - transform.position;
 
-            if (currentWp >= waypoints.Length || currentWp < 0)
-            {                
-                direction *= -1;
-                currentWp += direction;
+            if (distance.magnitude > speed * Time.deltaTime)
+            {
+                transform.position += distance.normalized * speed * Time.deltaTime;
             }
-        }
-    }
+            else
+            {
+                transform.position = waypoints[currentWp].position;
+                currentWp += direction;
 
-    
+                if (currentWp >= waypoints.Length || currentWp < 0)
+                {
+                    direction *= -1;
+                    currentWp += direction;
+                }
+            }
+        }        
+    }    
 }

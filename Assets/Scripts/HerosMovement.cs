@@ -180,18 +180,20 @@ public class HerosMovement : MonoBehaviour
             {
                 if (hitPos.normal.y > 0)
                 {
-                    grounded = true;
-                  
+                    grounded = true;                  
                 }
                 else grounded = false;
             }
+            if (collision.gameObject.layer == 22)
+            {
+                transform.SetParent(collision.transform);
+            }
         }        
 
-        if (collision.gameObject.layer == 10)
+        if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
         {           
             transform.SetParent(collision.transform);
-            grounded = true;
-          
+            grounded = true;          
         }
 
     }
@@ -200,8 +202,7 @@ public class HerosMovement : MonoBehaviour
     {
         if ((collision.gameObject.layer == 13) || (collision.gameObject.layer == 10))
         {
-            grounded = true;
-            
+            grounded = true;            
         }
     }
 
@@ -217,6 +218,11 @@ public class HerosMovement : MonoBehaviour
         if (collision.gameObject.layer == 10)
         {
             grounded = false;            
+            transform.SetParent(null);
+        }
+
+        if (collision.gameObject.layer == 22)
+        {
             transform.SetParent(null);
         }
 
