@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sr: {fileID: 0}
-  health: 30
+  health: 6
   lifeUI: {fileID: 0}
   layerToGetDamage: 18
   layerToGetDamge2: 17

@@ -69,7 +69,7 @@ public class PlayersHabilities : MonoBehaviour
             Bullet bulletScript = tempBullet.GetComponent<Bullet>();
             bulletScript.damage = damage;
             bulletScript.direction = hm.GetFacing();
-            bulletScript.time = 3;
+            bulletScript.time = 10;
             _delay = 0;
         }
     }
