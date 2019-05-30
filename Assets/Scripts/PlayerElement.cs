@@ -12,10 +12,12 @@ public class PlayerElement : MonoBehaviour
     public float distance;
     float delay;
     public float timeBtwBullets;
+    float timer;
 
     // Start is called before the first frame update
     public virtual void Start()
     {
+        timer = 0;
         delay = timeBtwBullets;
         ph = GetComponent<PlayersHabilities>();
         dm = GetComponent<Damaggeable>();
@@ -42,15 +44,19 @@ public class PlayerElement : MonoBehaviour
             return;
         }
         distance = Vector3.Distance(otherPlayerDm.position, transform.position);
-        if (distance < 0.3)
+        if (distance < 0.7)
         {
-            if (Input.GetButtonDown(ph.useButton) && (Input.GetButtonDown(pho.useButton)))
+            if (Input.GetButton(ph.useButton) && (Input.GetButton(pho.useButton)))
             {
-                dm.health += dm.maxH/10;
-                if (dm.health > dm.maxH)
+                if (timer > 0.3)
                 {
-                    dm.health = dm.maxH;
-                }
+                    dm.health += dm.maxH / 10;
+                    if (dm.health > dm.maxH)
+                    {
+                        dm.health = dm.maxH;
+                    }
+                }               
+                timer += Time.deltaTime;
             }
         }
     }
