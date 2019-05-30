@@ -44,9 +44,13 @@ public class PlayerElement : MonoBehaviour
         distance = Vector3.Distance(otherPlayerDm.position, transform.position);
         if (distance < 0.3)
         {
-            if (Input.GetButton(ph.useButton) && (Input.GetButton(pho.useButton)))
+            if (Input.GetButtonDown(ph.useButton) && (Input.GetButtonDown(pho.useButton)))
             {
-                dm.health = dm.maxH;
+                dm.health += dm.maxH/10;
+                if (dm.health > dm.maxH)
+                {
+                    dm.health = dm.maxH;
+                }
             }
         }
     }
@@ -54,8 +58,7 @@ public class PlayerElement : MonoBehaviour
     public void ShootElement()
     {
         if (Input.GetButton(ph.elementButton))
-        {
-            
+        {            
             SpawnBullets(ph.GetBulletSpawn());
             delay += Time.deltaTime;
         }

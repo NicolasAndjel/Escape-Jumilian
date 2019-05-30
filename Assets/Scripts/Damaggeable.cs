@@ -14,6 +14,7 @@ public class Damaggeable : MonoBehaviour
     public float health;       
     public Scrollbar lifeUI;
     public float layerToGetDamage;
+    public float layerToGetDamge2;
     public Color ColorWhenDamaged;
     Color startColor;
     public float instaKill;
@@ -50,7 +51,7 @@ public class Damaggeable : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {     
-        if (collision.gameObject.layer == layerToGetDamage || collision.gameObject.layer == 11)
+        if (collision.gameObject.layer == layerToGetDamage || collision.gameObject.layer == layerToGetDamge2 || collision.gameObject.layer == 11)
         {
             GetDamage(collision.gameObject.GetComponent<Bullet>().damage);
             Destroy(collision.gameObject);
