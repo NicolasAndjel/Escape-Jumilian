@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Activables : MonoBehaviour
 {
+
     public bool UseButtonsOnly;
     public Panels panel;
     public GameObject[] interruptors;
@@ -27,31 +28,29 @@ public class Activables : MonoBehaviour
 
 
     public virtual void Update()
-    {
+    {        
         if (UseButtonsOnly)
         {
             for (int i = 0; i < pads.Length; i++)
             {
-                if (!pads[i].active)
+                if (pads[i].active)
                 {
-                    count = 0;
-                }
-                else if (pads[i].active)
-                {
-                    count++;
-                }
+                    count = count + 1;
+                }                
             }
-
+            if (gameObject.name == "gate adsdsa")
+            Debug.Log(count);           
             if (count == pads.Length)
             {
                 active = true;
             }
             else active = false;
+            count = 0;
         }
         else if (panel.IsActive())
         {
             active = true;
-        }
+        }      
         
     }
 }

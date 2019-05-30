@@ -7,7 +7,6 @@ public class EnemySpawner : MonoBehaviour
     public float tick;
     public int i;
     public GameObject enemy;
-    public Panels door;
     public List<EnemiesHabilities> aliens;
 
     // Start is called before the first frame update
@@ -21,17 +20,6 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {        
 
-        if (door.open)
-        {
-            if (tick > 1 && i < 10)
-            {
-                GameObject tempAlien = Instantiate(enemy);
-                aliens.Add(tempAlien.GetComponent<EnemiesHabilities>());
-                i++;
-                tick = 0;
-            }
-            tick += Time.deltaTime;
-        }
         
     }
 }

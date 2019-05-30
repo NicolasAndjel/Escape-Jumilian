@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Activator.cs" />
     <Compile Include="Assets\CameraShake\Scenes\MyCameraScript.cs" />
     <Compile Include="Assets\CameraShake\Skripts\Clock\Clock.cs" />
     <Compile Include="Assets\CameraShake\Skripts\Clock\ClockTarget.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Assets\Scripts\Panels.cs" />
     <Compile Include="Assets\Scripts\ParallaxEffect.cs" />
     <Compile Include="Assets\Scripts\Pistol.cs" />
+    <Compile Include="Assets\Scripts\PlasmaBullet.cs" />
     <Compile Include="Assets\Scripts\PlasmaHeroMovement.cs" />
     <Compile Include="Assets\Scripts\Platform.cs" />
     <Compile Include="Assets\Scripts\PlayerElement.cs" />

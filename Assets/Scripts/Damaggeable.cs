@@ -49,18 +49,12 @@ public class Damaggeable : MonoBehaviour
 
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {        
-        
-        if (collision.gameObject.layer == layerToGetDamage && collision.gameObject.layer == 11)
+    {     
+        if (collision.gameObject.layer == layerToGetDamage || collision.gameObject.layer == 11)
         {
             GetDamage(collision.gameObject.GetComponent<Bullet>().damage);
             Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.GetComponent<Bullet>())
-        {
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.layer == instaKill) Die();
+        }        
         
     }    
 
@@ -74,12 +68,11 @@ public class Damaggeable : MonoBehaviour
 
     public void GetDamage(float amount)
     {
-        if (currentState != States.GODMODE)
-        {
-            health -= amount;
-            sr.color = ColorWhenDamaged;
-            didColored = false;
-        }
+        
+        health -= amount;
+        sr.color = ColorWhenDamaged;
+        didColored = false;
+        
     }
 
     public void Die()
@@ -103,7 +96,7 @@ public class Damaggeable : MonoBehaviour
             {
                 if (timer > 1)
                 {
-                    sr.color = Color.white;
+                    sr.color = startColor;
                     didColored = true;
                     timer = 0;
                 }
@@ -113,7 +106,7 @@ public class Damaggeable : MonoBehaviour
             {
                 if (timer > 1)
                 {
-                    sr.color = Color.white;
+                    sr.color = startColor;
                     didColored = true;
                     timer = 0.6f;
                 }

@@ -8,7 +8,8 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class HerosMovement : MonoBehaviour
 {    
-    Rigidbody2D rb;
+    [HideInInspector]
+    public Rigidbody2D rb;
     SpriteRenderer sr;
     Animator anim;
     public string player;
@@ -32,7 +33,7 @@ public class HerosMovement : MonoBehaviour
     
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
       
         lastFacing = Vector3.right;
@@ -46,7 +47,7 @@ public class HerosMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {        
         direction = Input.GetAxis(horizontalAxisName);
                 
@@ -123,7 +124,7 @@ public class HerosMovement : MonoBehaviour
         rb.velocity = finalSpeed;
     }
 
-    private void Jump()
+    public virtual void Jump()
     {
         if (grounded)
         {
@@ -170,9 +171,7 @@ public class HerosMovement : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log(collision);        
-        
+    {       
 
         if (collision.gameObject.layer == 13 || collision.gameObject.layer == 22)
         {
@@ -180,7 +179,8 @@ public class HerosMovement : MonoBehaviour
             {
                 if (hitPos.normal.y > 0)
                 {
-                    grounded = true;                  
+                    grounded = true;
+                    isOnAir = false;
                 }
                 else grounded = false;
             }
@@ -193,7 +193,8 @@ public class HerosMovement : MonoBehaviour
         if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
         {           
             transform.SetParent(collision.transform);
-            grounded = true;          
+            grounded = true;
+            isOnAir = false;
         }
 
     }
@@ -202,7 +203,8 @@ public class HerosMovement : MonoBehaviour
     {
         if ((collision.gameObject.layer == 13) || (collision.gameObject.layer == 10))
         {
-            grounded = true;            
+            grounded = true;
+            isOnAir = false;
         }
     }
 
@@ -212,18 +214,21 @@ public class HerosMovement : MonoBehaviour
     {
         if (collision.gameObject.layer == 13)
         {
-            grounded = false;            
+            grounded = false;
+            isOnAir = true;
         }
 
         if (collision.gameObject.layer == 10)
         {
             grounded = false;            
             transform.SetParent(null);
+            isOnAir = true;
         }
 
         if (collision.gameObject.layer == 22)
         {
             transform.SetParent(null);
+            isOnAir = true;
         }
 
     }

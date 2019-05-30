@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &292607793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 292607794}
+  m_Layer: 22
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &292607794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292607793}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.753, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2480125890156721738}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &339911529
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,9 +153,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1404745649}
-  - component: {fileID: 1404745651}
   - component: {fileID: 1404745650}
   - component: {fileID: 1404745652}
+  - component: {fileID: 1445758765115885278}
   m_Layer: 22
   m_Name: Pad
   m_TagString: Untagged
@@ -147,32 +177,6 @@ Transform:
   m_Father: {fileID: 2480125890156721738}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1404745651
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404745648}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.015885353, y: 0.17927837}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7231388, y: 0.37819958}
-  m_EdgeRadius: 0
 --- !u!50 &1404745650
 Rigidbody2D:
   serializedVersion: 4
@@ -210,6 +214,33 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300006, guid: 62266a0edc7a662418284cf0acde175c, type: 3}
   - {fileID: 21300000, guid: 62266a0edc7a662418284cf0acde175c, type: 3}
+  target: {fileID: 292607794}
+--- !u!61 &1445758765115885278
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404745648}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.017176628, y: 0.1982767}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7331028, y: 0.34976232}
+  m_EdgeRadius: 0
 --- !u!1 &7533601363886335754
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +273,7 @@ Transform:
   - {fileID: 1404745649}
   - {fileID: 339911530}
   - {fileID: 1344478703}
+  - {fileID: 292607794}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -310,6 +342,9 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.70098305, y: -0.100209}
-  - {x: -0.3666649, y: 0.18474603}
-  - {x: 0.38897896, y: 0.18495011}
+  - {x: -1.0294228, y: -0.19641721}
+  - {x: -0.20656013, y: 0.16062069}
+  - {x: 0.2529993, y: 0.16082478}
+  - {x: 1.0744057, y: -0.24957907}
+  - {x: 0.86365986, y: -0.2689581}
   - {x: 0.6908226, y: -0.08728051}

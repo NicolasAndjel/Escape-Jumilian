@@ -7,6 +7,8 @@ public class Interruptor : MonoBehaviour
     public bool active;
     private Rigidbody2D rb;
     public Sprite[] sprites;
+    public Transform target;
+    bool done;
 
     
     void Start()
@@ -27,6 +29,11 @@ public class Interruptor : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.layer == 19 && !done)
+        {
+            collision.transform.position = target.position;
+            done = true;
+        }
         if (!active && collision.gameObject.layer == 8)
         rb.gravityScale = 1;
         if (collision.gameObject.layer == 4)

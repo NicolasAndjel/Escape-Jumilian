@@ -2,35 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Panels : MonoBehaviour
-{
-    public GameObject door;
-    public Transform stop;
-    public Transform closed;
-    public float LayerToGetActivated;
-    public bool open;
-    private bool close;
-    Vector3 direction;
-    public float time;
-    float speed;
+public class Panels : Activables
+{    
 
-    // Start is called before the first frame update
-
-    void Start()
+    public override void Start()
     {
         
+    }
+
+    public override void Update()
+    {
+
     }
 
     public bool IsActive()
     {
-        return true;
+        return active;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.layer == 18)
+        {
+            active = true;
+        }
     }
-
-    
 }
