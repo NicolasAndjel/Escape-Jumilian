@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 7198772821993962632}
   - component: {fileID: 5920340220213655623}
   - component: {fileID: 1399704290}
+  - component: {fileID: 712559380461914663}
   m_Layer: 15
   m_Name: White Alien
   m_TagString: Untagged
@@ -345,6 +346,25 @@ MonoBehaviour:
   instaKill: -6
   currentState: 0
   maxH: 0
+--- !u!95 &712559380461914663
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5218560358519172945}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c014a3bcb4114942a53ca7d0648a59a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5902178050280028933
 GameObject:
   m_ObjectHideFlags: 0

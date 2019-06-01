@@ -1,12 +1,13 @@
 fileFormatVersion: 2
-guid: 9b15122d659e98b4abc223f81a37f46e
+guid: 8210ffd449e48dc48aef5caa563ebbb3
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Viento_0
-    21300002: Viento_1
-    21300004: Viento_3
-    21300006: Viento_5
-    21300008: Viento_6
+    21300000: Fly1_0
+    21300002: Fly1_1
+    21300004: Fly1_2
+    21300006: Fly1_3
+    21300008: Fly1_4
+    21300010: Fly1_5
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -50,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -111,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Viento_0
+      name: Fly1_0
       rect:
         serializedVersion: 2
-        x: 100
-        y: 330
-        width: 330
-        height: 570
+        x: 0
+        y: 1947
+        width: 522
+        height: 357
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,19 +126,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63d86f948f7e0be428c11edef45373ce
+      spriteID: 6e40bccd94ca9924a9bff419dcd9a1d6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viento_1
+      name: Fly1_1
       rect:
         serializedVersion: 2
-        x: 608
-        y: 330
-        width: 330
-        height: 570
+        x: 524
+        y: 1946
+        width: 515
+        height: 357
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,19 +146,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3fa6099f8b045a43ae841ba690d80bc
+      spriteID: 17073f097935173438d48745e909b845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viento_3
+      name: Fly1_2
       rect:
         serializedVersion: 2
-        x: 1118
-        y: 330
-        width: 330
-        height: 570
+        x: 1043
+        y: 1947
+        width: 515
+        height: 357
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,19 +166,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 696193b2163fa29438ef66c7d2928f78
+      spriteID: 6f053e05ba2dc9c4db5abb226d565271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viento_5
+      name: Fly1_3
       rect:
         serializedVersion: 2
-        x: 1599
-        y: 330
-        width: 330
-        height: 570
+        x: 1566
+        y: 1947
+        width: 515
+        height: 357
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,19 +186,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3196deeacdffb094d8b9c4aee71d2771
+      spriteID: 284085bed7b7838409080595a968774b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viento_6
+      name: Fly1_4
       rect:
         serializedVersion: 2
-        x: 2093
-        y: 330
-        width: 330
-        height: 570
+        x: 2088
+        y: 1947
+        width: 515
+        height: 357
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,7 +206,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0e7d4f7a410e1945919d4e093e420f6
+      spriteID: ac7ea5dfcc6d7c841a9f1bc69c080021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fly1_5
+      rect:
+        serializedVersion: 2
+        x: 2610
+        y: 1947
+        width: 515
+        height: 357
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b26e1123599b2574dbe5a6faf87cc141
       vertices: []
       indices: 
       edges: []
@@ -213,7 +234,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3bdd6a7a00d977c408430f87ed267582
+    spriteID: 0deaba20b1e769d4fb4411f132e53a10
     vertices: []
     indices: 
     edges: []

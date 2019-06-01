@@ -10,6 +10,15 @@ TextureImporter:
     21300010: Cinta borde 2
     21300012: Cinta borde 3
     21300014: Cinta borde 4
+    21300016: platafomas,Electricidad_0
+    21300018: platafomas,Electricidad_1
+    21300020: platafomas,Electricidad_2
+    21300022: platafomas,Electricidad_3
+    21300024: platafomas,Electricidad_4
+    21300026: platafomas,Electricidad_5
+    21300028: platafomas,Electricidad_6
+    21300030: platafomas,Electricidad_7
+    21300032: platafomas,Electricidad_8
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -122,7 +131,7 @@ TextureImporter:
         width: 100
         height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,7 +151,7 @@ TextureImporter:
         width: 100
         height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,7 +171,7 @@ TextureImporter:
         width: 100
         height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,7 +191,7 @@ TextureImporter:
         width: 100
         height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,7 +211,7 @@ TextureImporter:
         width: 118
         height: 83
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -222,7 +231,7 @@ TextureImporter:
         width: 118
         height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -242,7 +251,7 @@ TextureImporter:
         width: 118
         height: 84
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -262,13 +271,193 @@ TextureImporter:
         width: 117
         height: 83
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 4a36e3b91750e2d4d8ee38b8bb09b330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platafomas,Electricidad_0
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 132
+        width: 74
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d963eedad902a4a810c055cfeaaabb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platafomas,Electricidad_1
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 137
+        width: 74
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f9b14554f110ab43826f2aafda1e544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platafomas,Electricidad_2
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 140
+        width: 74
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c96706731700564b82c07d172f743aa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platafomas,Electricidad_3
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 142
+        width: 74
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4a70f787e0a0384eb05f3e380e7eb2c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platafomas,Electricidad_4
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 144
+        width: 74
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8818d73157143c944a78fbd4e4342f15
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platafomas,Electricidad_5
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 144
+        width: 74
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ee22f4af521d884da2d9dac9025679a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platafomas,Electricidad_6
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 143
+        width: 74
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ace4b47df5be4e4d9e87451632ff232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platafomas,Electricidad_7
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 143
+        width: 74
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 928b06bf79aba3a4396501a03599105a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platafomas,Electricidad_8
+      rect:
+        serializedVersion: 2
+        x: 1532
+        y: 141
+        width: 74
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b8f11b7dbae5de46a390812021b7624
       vertices: []
       indices: 
       edges: []
