@@ -20,7 +20,7 @@ public class Activables : MonoBehaviour
             pads = new Interruptor[interruptors.Length];
             for (int i = 0; i < pads.Length; i++)
             {
-                pads[i] = interruptors[i].transform.GetChild(0).GetComponent<Interruptor>();
+                pads[i] = interruptors[i].GetComponent<Interruptor>();
             }
             interruptors = null;
         }       
@@ -38,8 +38,6 @@ public class Activables : MonoBehaviour
                     count = count + 1;
                 }                
             }
-            if (gameObject.name == "gate adsdsa")
-            Debug.Log(count);           
             if (count == pads.Length)
             {
                 active = true;

@@ -10,8 +10,9 @@ public class EnemiesHabilities : MonoBehaviour
     public GameObject bullet;
     public Damaggeable target;
     public EnemiesMovement em;
-    public bool hitted;
-    bool done;
+    public Animator anim;
+    public bool attacking;
+    public bool hitted; 
     public bool stunt;
     public float tick;
     public float timeBtwHits;
@@ -21,6 +22,7 @@ public class EnemiesHabilities : MonoBehaviour
     void Start()
     {
         timer = timeStunt;
+        anim = GetComponent<Animator>();
         em = GetComponent<EnemiesMovement>();        
     }
 
@@ -56,11 +58,14 @@ public class EnemiesHabilities : MonoBehaviour
             em.speed = 0;
             if (timeBtwHits < tick)
             {
+                anim.SetBool("Attacking", true);
+                anim.Play("Attack");
                 target.GetDamage(damage);
                 tick = 0;
             }
-            tick += Time.deltaTime;
-
+            tick += Time.deltaTime;            
+            if (anim.GetBool("Attacking"))
+            anim.SetBool("Attacking", false);
         }
         else tick = 0;
     }

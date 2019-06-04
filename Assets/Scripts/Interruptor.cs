@@ -5,48 +5,55 @@ using UnityEngine;
 public class Interruptor : MonoBehaviour
 {
     public bool active;
-    private Rigidbody2D rb;
-    public Sprite[] sprites;
-    public Transform target;
-    bool done;
+    public SpriteRenderer sr;
+    //private Rigidbody2D rb;
+    public Sprite[] sprites;   
 
     
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+       //rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        if (active)
+        ActiveUI(active);       
+    }
+
+    private void ActiveUI(bool on)
+    {
+        if (on)
         {
-            transform.parent.GetComponent<SpriteRenderer>().sprite = sprites[0];
+            if (sr.sprite != sprites[0])
+            sr.sprite = sprites[0];
         }
-        else transform.parent.GetComponent<SpriteRenderer>().sprite = sprites[1];
-       
+        else
+        {
+            if (sr.sprite != sprites[1])
+            sr.sprite = sprites[1];
+        }
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 19 && !done)
+        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 19)
         {
-            collision.transform.position = target.position;
-            done = true;
-        }
-        if (!active && collision.gameObject.layer == 8)
-        rb.gravityScale = 1;
-        if (collision.gameObject.layer == 4)
-        {
-            active = true;            
+            foreach (ContactPoint2D hitPos in collision.contacts)
+            {
+                Debug.Log(hitPos.normal);
+                if (hitPos.normal.y < -0.5)
+                {
+                    active = true;
+                }
+            }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 19)
-            rb.gravityScale = -1;
-        if (collision.gameObject.layer == 4)
         {
             active = false;
         }

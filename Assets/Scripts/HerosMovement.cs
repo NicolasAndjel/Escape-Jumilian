@@ -122,6 +122,9 @@ public class HerosMovement : MonoBehaviour
     {
         finalSpeed = new Vector3(horizontal * speed, rb.velocity.y, 0);
         rb.velocity = finalSpeed;
+        anim.SetFloat("WalkSpeed", Mathf.Abs(finalSpeed.x));
+        anim.SetFloat("JumpSpeed", rb.velocity.normalized.y);
+        anim.SetBool("IsJumping", isOnAir);
     }
 
     public virtual void Jump()
@@ -173,21 +176,21 @@ public class HerosMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {       
 
-        if (collision.gameObject.layer == 13 || collision.gameObject.layer == 22)
+        if ((collision.gameObject.layer == 13 || collision.gameObject.layer == 22))
         {
-            foreach(ContactPoint2D hitPos in collision.contacts)
-            {
-                if (hitPos.normal.y > 0)
+            grounded = true;
+            isOnAir = false;
+            foreach (ContactPoint2D hitPos in collision.contacts)
+            {                
+                if (hitPos.normal.x != 0)
                 {
-                    grounded = true;
-                    isOnAir = false;
+                    if (isOnAir)
+                    {
+                        grounded = false;
+                    }
                 }
-                else grounded = false;
             }
-            if (collision.gameObject.layer == 22)
-            {
-                transform.SetParent(collision.transform);
-            }
+
         }        
 
         if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
@@ -198,17 +201,6 @@ public class HerosMovement : MonoBehaviour
         }
 
     }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if ((collision.gameObject.layer == 13) || (collision.gameObject.layer == 10))
-        {
-            grounded = true;
-            isOnAir = false;
-        }
-    }
-
-
 
     private void OnCollisionExit2D(Collision2D collision)
     {

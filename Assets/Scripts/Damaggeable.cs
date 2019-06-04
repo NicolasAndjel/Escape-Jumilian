@@ -10,6 +10,9 @@ public class Damaggeable : MonoBehaviour
         NORMAL,
         GODMODE,
     }
+    public Rigidbody2D rb;
+    public BoxCollider2D bc;
+    public Animator anim;
     public SpriteRenderer sr;
     public float health;       
     public Scrollbar lifeUI;
@@ -20,9 +23,11 @@ public class Damaggeable : MonoBehaviour
     public float instaKill;
     public States currentState;
     bool didColored;
+    bool dead;
     public float maxH;
     bool enemie;
     float timer;
+    float deadTime;
 
     private void Start()
     {
@@ -31,6 +36,9 @@ public class Damaggeable : MonoBehaviour
             enemie = true;
         }
         else enemie = false;
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        bc = GetComponent<BoxCollider2D>();
         didColored = true;
         maxH = health;
         sr = GetComponent<SpriteRenderer>();
@@ -40,23 +48,23 @@ public class Damaggeable : MonoBehaviour
 
     void Update()
     {
-        HealthUI();        
+        if (!dead)
+            HealthUI();
+        else DeSpawn();
         if (MustDie())
         {
             Die();
-        }
-                
+        }                
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {     
+    {
         if (collision.gameObject.layer == layerToGetDamage || collision.gameObject.layer == layerToGetDamge2 || collision.gameObject.layer == 11)
         {
             GetDamage(collision.gameObject.GetComponent<Bullet>().damage);
             Destroy(collision.gameObject);
         }        
-        
     }    
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -68,12 +76,15 @@ public class Damaggeable : MonoBehaviour
     }
 
     public void GetDamage(float amount)
-    {
-        
+    {        
         health -= amount;
         sr.color = ColorWhenDamaged;
-        didColored = false;
-        
+        didColored = false;        
+    }
+
+    private void DeSpawn()
+    {
+        Destroy(gameObject, 2);
     }
 
     public void Die()
@@ -81,8 +92,21 @@ public class Damaggeable : MonoBehaviour
         if (!enemie)
         {
             lifeUI.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            GetComponent<HerosMovement>().speed = 0;
         }
-        Destroy(gameObject);                               
+        else
+        {
+            GetComponent<EnemiesMovement>().active = false;
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
+        }
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        bc.enabled = false;        
+        anim.Play("Die");
+        dead = true;       
+        sr.color = startColor;
     }
 
     private void HealthUI()

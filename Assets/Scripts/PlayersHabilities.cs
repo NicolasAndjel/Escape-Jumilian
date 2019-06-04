@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayersHabilities : MonoBehaviour
-{     
-    public GameObject bullet;
+{
+    public GameObject muzzle;
+    public GameObject bullet;    
     public Transform bulletSpawnLeft;
     public Transform bulletSpawnRight;  
     public GameObject currentLever;
@@ -65,12 +66,18 @@ public class PlayersHabilities : MonoBehaviour
     {
         if (_delay > timeBtwBullets)
         {
+            muzzle.transform.position = bulletSpawn.position;
+            muzzle.SetActive(true);
             GameObject tempBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);          
             Bullet bulletScript = tempBullet.GetComponent<Bullet>();
             bulletScript.damage = damage;
             bulletScript.direction = hm.GetFacing();
             bulletScript.time = 10;
             _delay = 0;
+        }
+        if (muzzle.activeSelf == true && _delay > 0.3)
+        {
+            muzzle.SetActive(false);
         }
     }
 
