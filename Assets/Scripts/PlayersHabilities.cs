@@ -14,7 +14,6 @@ public class PlayersHabilities : MonoBehaviour
     public string pickUpButton;
     public string elementButton;
     public string useButton;
-
     float _delay;
     public float timeBtwBullets;      
     public float elementalDamage;
@@ -27,14 +26,13 @@ public class PlayersHabilities : MonoBehaviour
         fireButton += hm.player;
         pickUpButton += hm.player;
         elementButton += hm.player;
-        useButton += hm.player;
+        useButton += hm.player;       
         _delay = 0;
     }
 
     // Update is called once per frame
     void Update()
     {        
-
         Shoot(GetBulletSpawn());            
     }
    
@@ -59,6 +57,10 @@ public class PlayersHabilities : MonoBehaviour
         {
             SpawnBullets(spawn);
         }
+        if (Input.GetButtonUp(fireButton))
+        {
+            hm.anim.SetBool("IsShooting", false);
+        }       
         _delay += Time.deltaTime;
     }
 
@@ -66,19 +68,16 @@ public class PlayersHabilities : MonoBehaviour
     {
         if (_delay > timeBtwBullets)
         {
-            muzzle.transform.position = bulletSpawn.position;
-            muzzle.SetActive(true);
-            GameObject tempBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);          
+            Instantiate(muzzle, bulletSpawn.position, Quaternion.identity);
+            GameObject tempBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
             Bullet bulletScript = tempBullet.GetComponent<Bullet>();
+            bulletScript.transform.rotation = Quaternion.Euler(0, 90, 0);
             bulletScript.damage = damage;
             bulletScript.direction = hm.GetFacing();
             bulletScript.time = 10;
             _delay = 0;
-        }
-        if (muzzle.activeSelf == true && _delay > 0.3)
-        {
-            muzzle.SetActive(false);
-        }
+            hm.anim.SetBool("IsShooting", true);
+        }       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

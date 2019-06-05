@@ -60,7 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Activator.cs" />
     <Compile Include="Assets\CameraShake\Scenes\MyCameraScript.cs" />
     <Compile Include="Assets\CameraShake\Skripts\Clock\Clock.cs" />
     <Compile Include="Assets\CameraShake\Skripts\Clock\ClockTarget.cs" />
@@ -78,11 +77,13 @@
     <Compile Include="Assets\GabrielAguiarProductions\Unique_Projectiles_Volume_1\Scripts\Serializables.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Unique_Projectiles_Volume_1\Scripts\SpawnProjectilesScript.cs" />
     <Compile Include="Assets\Scripts\Activables.cs" />
+    <Compile Include="Assets\Scripts\Activator.cs" />
     <Compile Include="Assets\Scripts\AirForce.cs" />
     <Compile Include="Assets\Scripts\AR.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\Damaggeable.cs" />
+    <Compile Include="Assets\Scripts\DestroyByTime.cs" />
     <Compile Include="Assets\Scripts\Doors.cs" />
     <Compile Include="Assets\Scripts\ElementalActivator.cs" />
     <Compile Include="Assets\Scripts\EnemiesHabilities.cs" />

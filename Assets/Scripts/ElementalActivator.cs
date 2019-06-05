@@ -9,6 +9,7 @@ public class ElementalActivator : MonoBehaviour
     public float timeToFill;
     public bool filled;
     public int layerToGetActivated;
+    public GameObject ObjToActivate;
     public GameObject uI;
     float timer;
 
@@ -21,6 +22,11 @@ public class ElementalActivator : MonoBehaviour
             amount = 100;
         }
         uI.transform.localScale = new Vector3(uI.transform.localScale.x, amount / amountToFill, uI.transform.localScale.z);
+
+        if (ObjToActivate.activeSelf == false && filled)
+        {
+            ObjToActivate.SetActive(true);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

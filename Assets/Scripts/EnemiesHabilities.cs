@@ -7,6 +7,7 @@ public class EnemiesHabilities : MonoBehaviour
     public float life;
     public float damage;
     public float timeStunt;
+    public GameObject stuntUI;
     public GameObject bullet;
     public Damaggeable target;
     public EnemiesMovement em;
@@ -76,6 +77,7 @@ public class EnemiesHabilities : MonoBehaviour
         {
             if (timer > 0)
             {
+                Instantiate(stuntUI, transform.position, Quaternion.identity);
                 em.speed = 0;
             }
             else stunt = false;
@@ -96,6 +98,5 @@ public class EnemiesHabilities : MonoBehaviour
             stunt = true;
         }
     }
-
 
 }

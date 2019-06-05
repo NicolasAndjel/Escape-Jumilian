@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 5698036114649916711}
   - component: {fileID: 2106061439074113410}
   - component: {fileID: 1502442245415688007}
-  m_Layer: 15
+  m_Layer: 23
   m_Name: White Alien
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,9 +241,12 @@ MonoBehaviour:
   life: 30
   damage: 10
   timeStunt: 0.5
+  stuntUI: {fileID: 8632671250368662581, guid: 33b3c2c0e83e755438e9d764f1691aeb, type: 3}
   bullet: {fileID: 0}
   target: {fileID: 0}
   em: {fileID: 0}
+  anim: {fileID: 0}
+  attacking: 0
   hitted: 0
   stunt: 0
   tick: 0
@@ -307,6 +310,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68850f369ad032a44af3a1cd74ce00dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  bc: {fileID: 0}
+  anim: {fileID: 0}
   sr: {fileID: 0}
   health: 6
   lifeUI: {fileID: 0}

@@ -11,7 +11,8 @@ public class HerosMovement : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rb;
     SpriteRenderer sr;
-    Animator anim;
+    [HideInInspector]
+    public Animator anim;
     public string player;
     public string horizontalAxisName;
     public float speed;
@@ -21,7 +22,7 @@ public class HerosMovement : MonoBehaviour
     public KeyCode jumpButton;
     public float counterWindForce;
     public KeyCode counterWindButton;
-    public float knockUpAmount;
+    public float knockUpAmount; 
     public bool isOnAir;
     public bool canGround;
     public bool grounded;
@@ -34,11 +35,9 @@ public class HerosMovement : MonoBehaviour
 
     // Start is called before the first frame update
     public virtual void Start()
-    {
-      
+    {      
         lastFacing = Vector3.right;
-        horizontalAxisName = horizontalAxisName + player;
-        Debug.Log(horizontalAxisName);
+        horizontalAxisName = horizontalAxisName + player;       
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -50,13 +49,9 @@ public class HerosMovement : MonoBehaviour
     public virtual void Update()
     {        
         direction = Input.GetAxis(horizontalAxisName);
-                
-
 
         if (Input.GetKeyDown(jumpButton))
-        {
-            //anim.Play("Hit");
-            //anim.Play("Jump");
+        {            
             Jump();
         }
 
@@ -68,22 +63,6 @@ public class HerosMovement : MonoBehaviour
         SetFacing(direction);
 
         Move(direction);
-        
-
-        //anim.SetFloat("WalkSpeed", Mathf.Abs(horizontal));
-
-        if (isOnAir)
-        {
-            if (rb.velocity.y > 0)
-            {
-                //anim.Play("Jump");
-            }
-            else if (rb.velocity.y < 0)
-            {
-                //anim.Play("Fall");
-            }
-        }
-
     }
 
     private void SetFacing(float horizontal)
@@ -122,15 +101,16 @@ public class HerosMovement : MonoBehaviour
     {
         finalSpeed = new Vector3(horizontal * speed, rb.velocity.y, 0);
         rb.velocity = finalSpeed;
-        anim.SetFloat("WalkSpeed", Mathf.Abs(finalSpeed.x));
+        anim.SetFloat("WalkSpeed", Mathf.Abs(finalSpeed.normalized.x));
         anim.SetFloat("JumpSpeed", rb.velocity.normalized.y);
         anim.SetBool("IsJumping", isOnAir);
     }
 
-    public virtual void Jump()
+    public void Jump()
     {
         if (grounded)
         {
+            isOnAir = true;
             rb.velocity = Vector3.zero;
             rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             grounded = false;
@@ -174,53 +154,46 @@ public class HerosMovement : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {       
-
-        if ((collision.gameObject.layer == 13 || collision.gameObject.layer == 22))
+    {
+        foreach(ContactPoint2D hitPos in collision.contacts)
         {
-            grounded = true;
-            isOnAir = false;
-            foreach (ContactPoint2D hitPos in collision.contacts)
-            {                
-                if (hitPos.normal.x != 0)
+            if (hitPos.normal.y == 1)
+            {
+                isOnAir = false;
+                grounded = true;
+
+                if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
                 {
-                    if (isOnAir)
-                    {
-                        grounded = false;
-                    }
+                    Debug.Log("ad");
+                    transform.SetParent(collision.transform);
                 }
             }
-
-        }        
-
-        if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
-        {           
-            transform.SetParent(collision.transform);
-            grounded = true;
-            isOnAir = false;
-        }
+        }     
 
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 13)
+        if (collision.gameObject.layer == 14)
         {
             grounded = false;
-            isOnAir = true;
+        }
+
+        if (collision.gameObject.layer == 13)
+        {
+            grounded = false;           
         }
 
         if (collision.gameObject.layer == 10)
         {
             grounded = false;            
-            transform.SetParent(null);
-            isOnAir = true;
+            transform.SetParent(null);            
         }
 
-        if (collision.gameObject.layer == 22)
+        if (collision.gameObject.layer == 19)
         {
-            transform.SetParent(null);
-            isOnAir = true;
+            grounded = false;
+            transform.SetParent(null);           
         }
 
     }

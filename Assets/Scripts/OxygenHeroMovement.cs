@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OxygenHeroMovement : HerosMovement
 {
-    public bool canDJ;
+    public bool canDJ = false;
     public float oxygenCost;
 
     public override void Update()
@@ -21,7 +21,7 @@ public class OxygenHeroMovement : HerosMovement
         if (canDJ)
         {
             rb.velocity = Vector3.zero;
-            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);            
             grounded = false;
             canDJ = false;
             GetComponent<Damaggeable>().health -= oxygenCost;
@@ -30,28 +30,42 @@ public class OxygenHeroMovement : HerosMovement
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 13 || collision.gameObject.layer == 22)
+        foreach (ContactPoint2D hitPos in collision.contacts)
         {
-            foreach (ContactPoint2D hitPos in collision.contacts)
+            if (hitPos.normal.y == 1)
             {
-                if (hitPos.normal.y > 0)
+                isOnAir = false;
+                grounded = true;
+                canDJ = false;
+
+                if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
                 {
-                    grounded = true;
-                    canDJ = true;
+                    transform.SetParent(collision.transform);
                 }
-                else grounded = false;
-            }
-            if (collision.gameObject.layer == 22)
-            {
-                transform.SetParent(collision.transform);
             }
         }
+    }
 
-        if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 13)
         {
-            transform.SetParent(collision.transform);
-            grounded = true;
+            grounded = false;
             canDJ = true;
         }
+
+        if (collision.gameObject.layer == 10)
+        {
+            canDJ = true;
+            grounded = false;
+            transform.SetParent(null);
+        }
+
+        if (collision.gameObject.layer == 22)
+        {
+            canDJ = true;
+            transform.SetParent(null);
+        }
+
     }
 }

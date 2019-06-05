@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Panels : Activables
-{    
+{
+    public GameObject[] activatedUI;
 
     public override void Start()
     {
@@ -11,8 +12,12 @@ public class Panels : Activables
     }
 
     public override void Update()
-    {
-
+    {        
+        if (active)
+        {
+            Activate();
+            active = false;
+        }
     }
 
     public bool IsActive()
@@ -24,7 +29,16 @@ public class Panels : Activables
     {
         if (collision.gameObject.layer == 18)
         {
-            active = true;
+            Activate();
+        }
+    }
+
+    public void Activate()
+    {
+        active = true;
+        for (int i = 0; i < activatedUI.Length; i++)
+        {
+            activatedUI[i].SetActive(false);
         }
     }
 }

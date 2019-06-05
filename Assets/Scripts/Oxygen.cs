@@ -30,7 +30,8 @@ public class Oxygen : PlayerElement
         if (Input.GetButtonDown(ph.elementButton) && tim > timeBtwAirs)
         {
             GameObject tempAir = Instantiate(airExplotion, ph.GetBulletSpawn().position, Quaternion.identity);
-            var tempScript = tempAir.transform.GetChild(0).GetComponent<AirForce>();
+            tempAir.transform.parent = transform;
+            var tempScript = tempAir.GetComponent<AirForce>();
             tempScript.force = ph.hm.GetFacing();
             tim = 0;
         }

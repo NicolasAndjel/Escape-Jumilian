@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class AirForce : MonoBehaviour
 {
-    bool done;
-    [HideInInspector]
+    bool done = false;   
     public Vector3 force;
     public float forceStrenght;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(transform.parent.gameObject, 0.5f);
+        if (force.x < 0)
+        {
+            transform.localScale = transform.localScale * -1;
+        }
+        Destroy(gameObject, 0.5f);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (!done)
         {
-            collision.attachedRigidbody.AddForce(force, ForceMode2D.Impulse);
-            done = true;
+            if (collision.attachedRigidbody)
+            {
+                collision.attachedRigidbody.AddForce(force * forceStrenght, ForceMode2D.Impulse);
+                done = true;
+            }            
         }
     }
 }

@@ -7,13 +7,12 @@ public class Interruptor : MonoBehaviour
     public bool active;
     public SpriteRenderer sr;
     //private Rigidbody2D rb;
-    public Sprite[] sprites;   
+    public Sprite[] sprites;
 
     
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-       //rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();      
     }
 
     private void Update()
@@ -37,26 +36,33 @@ public class Interruptor : MonoBehaviour
 
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {        
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 19)
         {
             foreach (ContactPoint2D hitPos in collision.contacts)
             {
-                Debug.Log(hitPos.normal);
                 if (hitPos.normal.y < -0.5)
                 {
                     active = true;
                 }
             }
+        }       
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 19)
+        {
+            active = true;
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
-    {
+    {               
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 19)
         {
             active = false;
-        }
+        }              
     }
 
 
