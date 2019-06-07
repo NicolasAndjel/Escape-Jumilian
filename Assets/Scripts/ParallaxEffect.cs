@@ -16,8 +16,7 @@ public class ParallaxEffect : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start()
-    {
-        smoothing = 1f;
+    {        
         previousCamPos = cam.position;
         parallaxScales = new float[backgrounds.Length];
         for (int i = 0; i < backgrounds.Length; i++)

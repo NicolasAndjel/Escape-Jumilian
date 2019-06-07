@@ -48,8 +48,7 @@ public class PlayersHabilities : MonoBehaviour
             a = bulletSpawnRight;            
         }
         return a;
-    }    
-    
+    }
 
     private void Shoot(Transform spawn)
     {   
@@ -71,7 +70,7 @@ public class PlayersHabilities : MonoBehaviour
             Instantiate(muzzle, bulletSpawn.position, Quaternion.identity);
             GameObject tempBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
             Bullet bulletScript = tempBullet.GetComponent<Bullet>();
-            bulletScript.transform.rotation = Quaternion.Euler(0, 90, 0);
+            //bulletScript.transform.rotation = Quaternion.Euler(0, 90, 0);
             bulletScript.damage = damage;
             bulletScript.direction = hm.GetFacing();
             bulletScript.time = 10;

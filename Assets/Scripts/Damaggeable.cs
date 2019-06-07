@@ -91,7 +91,7 @@ public class Damaggeable : MonoBehaviour
     {
         if (!enemie)
         {
-            lifeUI.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            lifeUI.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
             GetComponent<HerosMovement>().speed = 0;
         }
         else
@@ -119,7 +119,7 @@ public class Damaggeable : MonoBehaviour
         {
             if (!enemie)
             {
-                if (timer > 1)
+                if (timer > 0.5)
                 {
                     sr.color = startColor;
                     didColored = true;

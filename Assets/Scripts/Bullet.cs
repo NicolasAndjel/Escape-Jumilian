@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public GameObject hitting;
+    public Transform bulletSpawnLeft;
+    public Transform bulletSpawnRight;
     public Vector3 direction;
     public float speed;
     public float time;
@@ -27,14 +30,27 @@ public class Bullet : MonoBehaviour
         {
             dir = -1;
         }
-        transform.position += Vector3.right * dir * speed * Time.deltaTime;
+        transform.position += Vector3.right * dir * speed * Time.deltaTime;        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 13 || collision.gameObject.layer == 14)
-        {
-            Destroy(gameObject);
-        }
+        Instantiate(hitting, GetHitSpawn().position, Quaternion.identity);
+        Destroy(gameObject);
+        
     }
+
+    public Transform GetHitSpawn()
+    {
+        Transform a = null;
+        if (dir == -1)
+        {
+            a = bulletSpawnLeft;
+        }
+        else
+        {
+            a = bulletSpawnRight;
+        }
+        return a;
+    }       
 }

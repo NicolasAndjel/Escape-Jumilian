@@ -32,17 +32,19 @@ public class OxygenHeroMovement : HerosMovement
     {
         foreach (ContactPoint2D hitPos in collision.contacts)
         {
+            Debug.Log(hitPos.normal.y);
             if (hitPos.normal.y == 1)
             {
                 isOnAir = false;
                 grounded = true;
-                canDJ = false;
+                canDJ = false;               
 
                 if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
                 {
                     transform.SetParent(collision.transform);
                 }
             }
+            if (collision.gameObject.layer == 13) canDJ = false;
         }
     }
 
