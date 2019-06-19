@@ -50,7 +50,7 @@ public class PlayerElement : MonoBehaviour
             {
                 if (timer > 0.3)
                 {
-                    dm.health += dm.maxH / 10;
+                    dm.health += dm.maxH / 30;
                     if (dm.health > dm.maxH)
                     {
                         dm.health = dm.maxH;
@@ -70,13 +70,13 @@ public class PlayerElement : MonoBehaviour
         }
         if (Input.GetButtonUp(ph.elementButton))
         {
+            ph.hm.anim.SetBool("IsShooting", false);
             delay = timeBtwBullets;
         }
     }
 
     public void SpawnBullets(Transform bulletSpawn)
-    {
-        
+    {        
         if (delay >= timeBtwBullets)
         {
             dm.health = dm.health -1;
@@ -86,6 +86,7 @@ public class PlayerElement : MonoBehaviour
             bulletScript.direction = ph.hm.GetFacing();
             bulletScript.time = 3;
             delay = 0;
+            ph.hm.anim.SetBool("IsShooting", true);
         }
         
     }

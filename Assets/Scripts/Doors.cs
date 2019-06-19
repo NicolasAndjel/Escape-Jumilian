@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Doors : Activables
 {
-    public Transform[] points;
-    public int currentPoint;
-    public float speed;  
-    
+    public Sprite[] sprites;
+    private SpriteRenderer sr;
+    private BoxCollider2D bc;
+
+    public void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>();
+        bc = GetComponent<BoxCollider2D>();
+    }
+
 
     // Start is called before the first frame update
     public override void Start()
@@ -24,39 +30,26 @@ public class Doors : Activables
         {
             Open();
         }
-        else Close();
-        Move();
-    }
-
-    private void Open()
-    {
-        currentPoint = 1;
+        else Close();        
     }
 
     private void Close()
     {
-        currentPoint = 0;
+        if (sr.sprite != sprites[0])
+        {
+            transform.position = transform.parent.position;
+            sr.sprite = sprites[0];
+            bc.enabled = true;
+        }
     }
 
-    public void Move()
+    public void Open()
     {
-        Vector3 direction = points[currentPoint].position - transform.position;
-
-        if (currentPoint == 1)
+        if (sr.sprite != sprites[1])
         {
-            if (direction.y > speed * Time.deltaTime)
-            {
-                transform.position += direction.normalized * speed * Time.deltaTime;
-            }
-            else transform.position = points[currentPoint].position;
-        }
-        else if (currentPoint == 0)
-        {
-            if (direction.y > -speed * Time.deltaTime)
-            {
-                transform.position += direction.normalized * speed * Time.deltaTime;
-            }
-            else transform.position = points[currentPoint].position;
-        }
+            transform.position = transform.parent.position + new Vector3(-0.648f, 0, 0);
+            sr.sprite = sprites[1];
+            bc.enabled = false;
+        }      
     }    
 }

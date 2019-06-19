@@ -7,6 +7,7 @@ public class Oxygen : PlayerElement
 
     public GameObject airExplotion;
     public float timeBtwAirs;
+    public float OxygenCost;
     float tim;
 
     // Start is called before the first frame update
@@ -29,15 +30,15 @@ public class Oxygen : PlayerElement
     {
         if (Input.GetButtonDown(ph.elementButton) && tim > timeBtwAirs)
         {
-            GameObject tempAir = Instantiate(airExplotion, ph.GetBulletSpawn().position, Quaternion.identity);
-            tempAir.transform.parent = transform;
-            var tempScript = tempAir.GetComponent<AirForce>();
+            GameObject tempAir = Instantiate(airExplotion, ph.GetBulletSpawn().position, Quaternion.identity);     
+            AirForce tempScript = tempAir.transform.GetChild(0).GetComponent<AirForce>();
             tempScript.force = ph.hm.GetFacing();
             tim = 0;
+            ph.hm.anim.SetBool("IsShooting", true);
+            GetComponent<Damaggeable>().health -= OxygenCost;
         }
+        else ph.hm.anim.SetBool("IsShooting", false);
         tim += Time.deltaTime;
-    }
-
-    
+    }    
 }
 

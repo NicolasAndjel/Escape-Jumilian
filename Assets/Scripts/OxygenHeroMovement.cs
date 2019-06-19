@@ -30,9 +30,13 @@ public class OxygenHeroMovement : HerosMovement
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        foreach (ContactPoint2D hitPos in collision.contacts)
+        if (!currentCollisions.Contains(collision.gameObject))
         {
-            Debug.Log(hitPos.normal.y);
+            currentCollisions.Add(collision.gameObject);
+        }
+
+        foreach (ContactPoint2D hitPos in collision.contacts)
+        {            
             if (hitPos.normal.y == 1)
             {
                 isOnAir = false;
@@ -50,6 +54,11 @@ public class OxygenHeroMovement : HerosMovement
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (currentCollisions.Contains(collision.gameObject))
+        {
+            currentCollisions.Remove(collision.gameObject);
+        }
+
         if (collision.gameObject.layer == 13)
         {
             grounded = false;
@@ -64,6 +73,12 @@ public class OxygenHeroMovement : HerosMovement
         }
 
         if (collision.gameObject.layer == 22)
+        {
+            canDJ = true;
+            transform.SetParent(null);
+        }
+
+        if (collision.gameObject.layer == 19)
         {
             canDJ = true;
             transform.SetParent(null);

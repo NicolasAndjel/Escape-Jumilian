@@ -7,14 +7,27 @@ public class AirForce : MonoBehaviour
     bool done = false;   
     public Vector3 force;
     public float forceStrenght;
-    // Start is called before the first frame update
+    Animator anim;
+    public float time;
+   
     void Start()
     {
+        time = 1;
+        anim = GetComponent<Animator>();        
+        RuntimeAnimatorController ac = anim.runtimeAnimatorController;    
+        for (int i = 0; i < ac.animationClips.Length; i++)
+        {   
+            if (ac.animationClips[i].name == "Oxygen Special")     
+            {
+                time = ac.animationClips[i].length;
+            }
+        }
+        anim = null;
         if (force.x < 0)
         {
-            transform.localScale = transform.localScale * -1;
+            transform.parent.localScale = transform.localScale * -1;
         }
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject.transform.parent.gameObject, time);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

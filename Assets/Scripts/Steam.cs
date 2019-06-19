@@ -29,8 +29,7 @@ public class Steam : MonoBehaviour
                 if (sr.color.a < 0.1)
                 {
                     sr.color = new Color(1, 1, 1, 0);
-                    timer = 0;
-                    bc.enabled = false;
+                    timer = 0;                    
                     fading = false;
                 }
             }
@@ -40,13 +39,23 @@ public class Steam : MonoBehaviour
                 if (sr.color.a > 0.9)
                 {
                     sr.color = new Color(1, 1, 1, 1);
-                    timer = 0;
-                    bc.enabled = true;
+                    timer = 0;                    
                     fading = true;
                 }
             }
             
         }
+
+        if (sr.color.a > 0)
+        {
+            if (!bc.enabled)
+                bc.enabled = true;
+        }
+        else
+        {
+            bc.enabled = false;
+        
+}
     }
 
     private void DoDamage(float amount, GameObject go)
@@ -58,14 +67,16 @@ public class Steam : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
-            DoDamage(damage,collision.gameObject);
-            collision.gameObject.GetComponent<HerosMovement>().KnockUp();
+            if (sr.color.a != 0)
+            {
+                DoDamage(damage, collision.gameObject);
+                collision.gameObject.GetComponent<HerosMovement>().KnockUp();
+            }           
         }
     }
 
     Color FadeAway(float from, float to)
     {
-
         return new Color(1, 1, 1, Mathf.Lerp(from, to, Time.deltaTime)); ;
     }
 }

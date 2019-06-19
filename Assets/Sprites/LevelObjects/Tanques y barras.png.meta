@@ -14,6 +14,17 @@ TextureImporter:
     21300018: Tanques y barras_19
     21300020: Tanques y barras_20
     21300022: Tanques y barras_21
+    21300024: Tanques y barras_2
+    21300026: Tanques y barras_3
+    21300028: Tanques y barras_5
+    21300030: Tanques y barras_6
+    21300032: Tanques y barras_8
+    21300034: Tanques y barras_9
+    21300036: Tanques y barras_11
+    21300038: Tanques y barras_12
+    21300040: Tanques y barras_14
+    21300042: Tanques y barras_15
+    21300044: Tanques y barras_22
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -124,15 +135,15 @@ TextureImporter:
         x: 53
         y: 786
         width: 151
-        height: 259
+        height: 230
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c225cdf76617fa24d901026f692d4823
+      spriteID: 4eec8deaadff22b408ea00824b413cb0
       vertices: []
       indices: 
       edges: []
@@ -142,17 +153,57 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 284
-        y: 787
+        y: 786
         width: 151
-        height: 259
+        height: 230
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a030fdd28d8a3314896c8c8e8201d1cc
+      spriteID: ad8fc5f611b0a174c8236b084b5ee008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tanques y barras_2
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 1010
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc677f1b935536749a22a539fdef30da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tanques y barras_3
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 1010
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f764d610830c8f543940f1a395ecebe9
       vertices: []
       indices: 
       edges: []
@@ -164,15 +215,55 @@ TextureImporter:
         x: 545
         y: 786
         width: 151
-        height: 259
+        height: 230
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b370c39240f49e74a8a13e0dd9809e1b
+      spriteID: d6c12b7b0ae411248acadfbdc235fb08
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tanques y barras_5
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 1010
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89bcc80bad1967e4c90b876bfc736434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tanques y barras_6
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 1010
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a04fe17b201aa3b4aae3516e89868d85
       vertices: []
       indices: 
       edges: []
@@ -184,15 +275,55 @@ TextureImporter:
         x: 807
         y: 786
         width: 151
-        height: 259
+        height: 230
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4e4a5e8f95ad324194f2fc8269a8df5
+      spriteID: 77c12aa8cc1c0194e8cedd530a46a9f2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tanques y barras_8
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 1010
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb3199e31473fb479cd5b49d02b69e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tanques y barras_9
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 1010
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a24b24df8cbb5a46a903e7b9ff31971
       vertices: []
       indices: 
       edges: []
@@ -204,15 +335,55 @@ TextureImporter:
         x: 1046
         y: 786
         width: 151
-        height: 259
+        height: 230
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f31b9a00cb5fd34083cdf85a897d2b3
+      spriteID: ced0622073b85884bbafb38ba114f04f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tanques y barras_11
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 1010
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24926ee11ca9a4f499613a11fbd64909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tanques y barras_12
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 1010
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 962daa77a6aaaed478180899ba7926b3
       vertices: []
       indices: 
       edges: []
@@ -224,15 +395,55 @@ TextureImporter:
         x: 1305
         y: 786
         width: 151
-        height: 259
+        height: 230
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a57edcf55a4bb7741a7e4e0a39fbba3f
+      spriteID: fb949938f0049bb478249c70ba24d786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tanques y barras_14
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 1010
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16245b28a63089846b958c39bd60ebff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tanques y barras_15
+      rect:
+        serializedVersion: 2
+        x: 1389
+        y: 1010
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f704346e7008ff843b261775038f1ebd
       vertices: []
       indices: 
       edges: []
@@ -246,13 +457,13 @@ TextureImporter:
         width: 83
         height: 242
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d5ec9ea6e872f54da88e2057c2f925f
+      spriteID: af48f46d12e5b8a4ab231d0104421398
       vertices: []
       indices: 
       edges: []
@@ -266,13 +477,13 @@ TextureImporter:
         width: 83
         height: 242
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 616ba697f0e70f64b9cdd9ecfbc139cd
+      spriteID: b16473b5a06703e43b54933e3228a0d1
       vertices: []
       indices: 
       edges: []
@@ -281,18 +492,18 @@ TextureImporter:
       name: Tanques y barras_18
       rect:
         serializedVersion: 2
-        x: 52
-        y: 276
-        width: 104
-        height: 102
+        x: 585
+        y: 540
+        width: 67
+        height: 119
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29aae9c6f799ae94c9fa149ac202e046
+      spriteID: e980da4397ff7ff4a8081a0b798bb247
       vertices: []
       indices: 
       edges: []
@@ -301,18 +512,18 @@ TextureImporter:
       name: Tanques y barras_19
       rect:
         serializedVersion: 2
-        x: 164
-        y: 287
-        width: 282
-        height: 80
+        x: 52
+        y: 276
+        width: 104
+        height: 102
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96b88e74c4f754045b316b30b6948ad3
+      spriteID: 0b149ee5539f314458c72b1aaa202932
       vertices: []
       indices: 
       edges: []
@@ -321,18 +532,18 @@ TextureImporter:
       name: Tanques y barras_20
       rect:
         serializedVersion: 2
-        x: 52
-        y: 112
-        width: 104
-        height: 104
+        x: 164
+        y: 287
+        width: 282
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b720994ff8525cf4daef11ee85013e3d
+      spriteID: 7ac5ab45c19f8aa479d50c13c60b973a
       vertices: []
       indices: 
       edges: []
@@ -341,18 +552,38 @@ TextureImporter:
       name: Tanques y barras_21
       rect:
         serializedVersion: 2
-        x: 166
-        y: 124
-        width: 280
-        height: 80
+        x: 52
+        y: 112
+        width: 104
+        height: 104
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43ae733975ba2a5409ee59856597067e
+      spriteID: 50409f752d5999d439a8ca5f86d61448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tanques y barras_22
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 124
+        width: 280
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fde6657b2b933148b435d342e79834f
       vertices: []
       indices: 
       edges: []

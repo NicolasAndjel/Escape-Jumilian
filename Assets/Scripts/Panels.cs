@@ -5,6 +5,8 @@ using UnityEngine;
 public class Panels : Activables
 {
     public GameObject[] activatedUI;
+    public SpriteRenderer lights;
+    public Sprite lightSpriteActive;
 
     public override void Start()
     {
@@ -38,7 +40,8 @@ public class Panels : Activables
         active = true;
         for (int i = 0; i < activatedUI.Length; i++)
         {
-            activatedUI[i].SetActive(false);
+            activatedUI[i].SetActive(true);
         }
+        lights.sprite = lightSpriteActive;
     }
 }

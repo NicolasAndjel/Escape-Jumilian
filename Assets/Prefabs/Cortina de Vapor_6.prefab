@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6587622041813092004}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -4.669777, y: -5.537, z: 0.11784761}
-  m_LocalScale: {x: 1, y: 0.877, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeActive: 1
   damage: 10
-  fading: 1
+  fading: 0
 --- !u!61 &1882220351
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -18,10 +18,13 @@ public class PlayersHabilities : MonoBehaviour
     public float timeBtwBullets;      
     public float elementalDamage;
     public float damage;
+    public AnimationClip shot;
+    public float shotTime;
 
     // Start is called before the first frame update
     void Start()
-    {        
+    {
+        shotTime = shot.averageDuration;
         hm = GetComponent<HerosMovement>();
         fireButton += hm.player;
         pickUpButton += hm.player;
@@ -65,18 +68,20 @@ public class PlayersHabilities : MonoBehaviour
 
     public void SpawnBullets(Transform bulletSpawn)
     {
-        if (_delay > timeBtwBullets)
+        if (!hm.isOnAir)
         {
-            Instantiate(muzzle, bulletSpawn.position, Quaternion.identity);
-            GameObject tempBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
-            Bullet bulletScript = tempBullet.GetComponent<Bullet>();
-            //bulletScript.transform.rotation = Quaternion.Euler(0, 90, 0);
-            bulletScript.damage = damage;
-            bulletScript.direction = hm.GetFacing();
-            bulletScript.time = 10;
-            _delay = 0;
-            hm.anim.SetBool("IsShooting", true);
-        }       
+            if (_delay > shotTime)
+            {
+                Instantiate(muzzle, bulletSpawn.position, Quaternion.identity);
+                GameObject tempBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
+                Bullet bulletScript = tempBullet.GetComponent<Bullet>();                
+                bulletScript.damage = damage;
+                bulletScript.direction = hm.GetFacing();
+                bulletScript.time = 10;
+                _delay = 0;                
+                hm.anim.SetBool("IsShooting", true);
+            }
+        }         
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

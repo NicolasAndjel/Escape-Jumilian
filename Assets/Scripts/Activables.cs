@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Activables : MonoBehaviour
-{
-
+{   
     public bool UseButtonsOnly;
     public Panels panel;
     public GameObject[] interruptors;
@@ -14,41 +13,47 @@ public class Activables : MonoBehaviour
 
     public virtual void Start()
     {
-        if (UseButtonsOnly)
+        if (interruptors.Length != 0)
         {
-            count = 0;
-            pads = new Interruptor[interruptors.Length];
-            for (int i = 0; i < pads.Length; i++)
+            if (UseButtonsOnly)
             {
-                pads[i] = interruptors[i].GetComponent<Interruptor>();
+                count = 0;
+                pads = new Interruptor[interruptors.Length];
+                for (int i = 0; i < interruptors.Length; i++)
+                {
+                    pads[i] = interruptors[i].GetComponent<Interruptor>();
+                }
+                interruptors = null;
             }
-            interruptors = null;
-        }       
+        }
+           
     }
 
 
     public virtual void Update()
     {        
-        if (UseButtonsOnly)
+        if (pads.Length != 0)
         {
-            for (int i = 0; i < pads.Length; i++)
+            if (UseButtonsOnly)
             {
-                if (pads[i].active)
+                for (int i = 0; i < pads.Length; i++)
                 {
-                    count = count + 1;
-                }                
+                    if (pads[i].active)
+                    {
+                        count = count + 1;
+                    }
+                }
+                if (count == pads.Length)
+                {
+                    active = true;
+                }
+                else active = false;
+                count = 0;
             }
-            if (count == pads.Length)
+            else if (panel.IsActive())
             {
                 active = true;
             }
-            else active = false;
-            count = 0;
-        }
-        else if (panel.IsActive())
-        {
-            active = true;
-        }      
-        
+        }       
     }
 }

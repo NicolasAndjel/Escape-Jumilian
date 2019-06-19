@@ -6,12 +6,12 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
+
 public class HerosMovement : MonoBehaviour
 {    
     [HideInInspector]
     public Rigidbody2D rb;
-    SpriteRenderer sr;
-    [HideInInspector]
+    SpriteRenderer sr;   
     public Animator anim;
     public string player;
     public string horizontalAxisName;
@@ -31,11 +31,13 @@ public class HerosMovement : MonoBehaviour
     public float direction;
     private Vector3 finalSpeed;
     private Vector3 lastFacing;
+    public List<GameObject> currentCollisions;
     
 
     // Start is called before the first frame update
     public virtual void Start()
-    {      
+    {
+        currentCollisions = new List<GameObject>();
         lastFacing = Vector3.right;
         horizontalAxisName = horizontalAxisName + player;       
         rb = GetComponent<Rigidbody2D>();
@@ -47,11 +49,13 @@ public class HerosMovement : MonoBehaviour
 
     // Update is called once per frame
     public virtual void Update()
-    {        
+    {
+        StayGrounded();
+
         direction = Input.GetAxis(horizontalAxisName);
 
         if (Input.GetKeyDown(jumpButton))
-        {            
+        {
             Jump();
         }
 
@@ -63,8 +67,8 @@ public class HerosMovement : MonoBehaviour
         SetFacing(direction);
 
         Move(direction);
-    }
 
+    }  
     private void SetFacing(float horizontal)
     {
         if (horizontal < 0)
@@ -95,6 +99,20 @@ public class HerosMovement : MonoBehaviour
             facing = lastFacing;
         }
         return facing;
+    }
+
+    private void StayGrounded()
+    {
+        if (!grounded)
+        {
+            for (int i = 0; i < currentCollisions.Count; i++)
+            {
+                if (currentCollisions[i].layer == 13)
+                {
+                    grounded = true;
+                }
+            }
+        }               
     }
 
     private void Move(float horizontal)
@@ -155,6 +173,11 @@ public class HerosMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!currentCollisions.Contains(collision.gameObject))
+        {
+            currentCollisions.Add(collision.gameObject);
+        }
+
         foreach(ContactPoint2D hitPos in collision.contacts)
         {
             if (hitPos.normal.y == 1)
@@ -163,8 +186,7 @@ public class HerosMovement : MonoBehaviour
                 grounded = true;
 
                 if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
-                {
-                    Debug.Log("ad");
+                {                   
                     transform.SetParent(collision.transform);
                 }
             }
@@ -174,6 +196,11 @@ public class HerosMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (currentCollisions.Contains(collision.gameObject))
+        {
+            currentCollisions.Remove(collision.gameObject);
+        }
+
         if (collision.gameObject.layer == 14)
         {
             grounded = false;

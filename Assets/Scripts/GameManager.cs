@@ -19,10 +19,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (p1 == null || p2 == null)
+        /*if (p1 == null || p2 == null)
         {
             SceneManager.LoadScene("Level1");
-        }
+        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

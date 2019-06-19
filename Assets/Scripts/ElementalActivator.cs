@@ -5,23 +5,39 @@ using UnityEngine;
 public class ElementalActivator : MonoBehaviour
 {
     public float amountToFill;
-    public float amount = 0;
     public float timeToFill;
     public bool filled;
     public int layerToGetActivated;
     public GameObject ObjToActivate;
     public GameObject uI;
+    public PlayersHabilities currentPlayer;
     float timer;
+    float startSize;
+    bool canBeFilled;
 
+    private void Start()
+    {
+        startSize = uI.transform.localScale.y;
+        amountToFill = startSize;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (amount > amountToFill)
+
+        if (0 > amountToFill)
         {
             filled = true;
-            amount = 100;
+            amountToFill = 0;
+            canBeFilled = false;
         }
-        uI.transform.localScale = new Vector3(uI.transform.localScale.x, amount / amountToFill, uI.transform.localScale.z);
+
+        if (canBeFilled)
+        {
+            Fill();
+        }
+
+
+        uI.transform.localScale = new Vector3(uI.transform.localScale.x, (startSize * (amountToFill/startSize)), uI.transform.localScale.z);
 
         if (ObjToActivate.activeSelf == false && filled)
         {
@@ -29,24 +45,31 @@ public class ElementalActivator : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == layerToGetActivated)
-        {
-            if (collision.gameObject.GetComponent<Oxygen>())
-            {
-                if (Input.GetButton(collision.gameObject.GetComponent<PlayersHabilities>().useButton))
-                { 
-                    if (timer > timeToFill)
-                    {
-                        amount += 1;
-                        timer = 0;
-                    }
-                    timer += Time.deltaTime;
+        canBeFilled = true;
+        currentPlayer = collision.gameObject.GetComponent<PlayersHabilities>();
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        canBeFilled = false;
+        currentPlayer = null;
+    }
+
+    private void Fill()
+    {
+        if (currentPlayer.gameObject.layer == layerToGetActivated)
+        {            
+            if (Input.GetButton(currentPlayer.useButton))
+            { 
+                if (timer > timeToFill)
+                {
+                    amountToFill-=0.5f/amountToFill;
+                    timer = 0;
                 }
-                
-            }
-           
+                timer += Time.deltaTime;
+            }          
         }
     }
 }

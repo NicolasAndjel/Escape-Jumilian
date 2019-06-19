@@ -5,8 +5,7 @@ using UnityEngine;
 public class Interruptor : MonoBehaviour
 {
     public bool active;
-    public SpriteRenderer sr;
-    //private Rigidbody2D rb;
+    public SpriteRenderer sr;    
     public Sprite[] sprites;
 
     

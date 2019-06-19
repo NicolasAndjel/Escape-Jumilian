@@ -36,8 +36,7 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Instantiate(hitting, GetHitSpawn().position, Quaternion.identity);
-        Destroy(gameObject);
-        
+        Destroy(gameObject);       
     }
 
     public Transform GetHitSpawn()
