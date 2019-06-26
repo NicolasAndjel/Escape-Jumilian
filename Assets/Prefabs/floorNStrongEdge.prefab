@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902395050979947925}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.578, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.804, y: 0, z: 0}
+  m_LocalScale: {x: 1.07, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 417174533741438563}
   m_RootOrder: 0
@@ -67,7 +67,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -517645625
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300006, guid: 439eb8bb6e260f54abf70aad3764f5de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -104,8 +104,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902395052095442713}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.52, y: -0.0036656752, z: 0}
-  m_LocalScale: {x: 12.79375, y: 1, z: 1}
+  m_LocalPosition: {x: -6.48, y: -0.0036656752, z: 0}
+  m_LocalScale: {x: 8.941969, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 417174533741438563}
   m_RootOrder: 1
@@ -168,7 +168,6 @@ GameObject:
   m_Component:
   - component: {fileID: 417174533741438563}
   - component: {fileID: 8477002242896447542}
-  - component: {fileID: 2094831179}
   m_Layer: 13
   m_Name: floorNStrongEdge
   m_TagString: Untagged
@@ -205,7 +204,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: -5.1399455, y: -0.020302474}
+  m_Offset: {x: -5.0968637, y: -0.020302474}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -216,24 +215,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.743968, y: 0.6877352}
+  m_Size: {x: 13.380777, y: 0.6877352}
   m_EdgeRadius: 0
---- !u!251 &2094831179
-PlatformEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6315264689171654337}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RotationalOffset: 0
-  m_UseOneWay: 0
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1

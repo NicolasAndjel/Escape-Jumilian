@@ -5,6 +5,8 @@ using UnityEngine;
 public class Doors : Activables
 {
     public Sprite[] sprites;
+    public Sprite[] lightsSprites;
+    public SpriteRenderer[] lightsObject;
     private SpriteRenderer sr;
     private BoxCollider2D bc;
 
@@ -26,6 +28,7 @@ public class Doors : Activables
     public override void Update()
     {
         base.Update();
+        LightsUI();
         if (active)
         {
             Open();
@@ -33,11 +36,40 @@ public class Doors : Activables
         else Close();        
     }
 
+    private void LightsUI()
+    {
+        if (UseButtonsOnly)
+        {
+            for (int i = 0; i < lightsObject.Length; i++)
+            {
+                if (pads[i].active)
+                    lightsObject[i].sprite = lightsSprites[1];
+                else
+                    lightsObject[i].sprite = lightsSprites[0];
+            }
+        }        
+        
+    }
+
     private void Close()
     {
-        if (sr.sprite != sprites[0])
+        
+        if (UseButtonsOnly)
         {
-            transform.position = transform.parent.position;
+            for (int i = 0; i < lightsObject.Length; i++)
+            {
+                lightsObject[i].enabled = true;
+            }
+        }
+        else
+        {
+            if (!panel.active)
+            {
+                lightsObject[0].enabled = true;
+            }
+        }
+        if (sr.sprite != sprites[0])
+        {            
             sr.sprite = sprites[0];
             bc.enabled = true;
         }
@@ -45,9 +77,23 @@ public class Doors : Activables
 
     public void Open()
     {
-        if (sr.sprite != sprites[1])
+        if (UseButtonsOnly)
         {
-            transform.position = transform.parent.position + new Vector3(-0.648f, 0, 0);
+            for (int i = 0; i < lightsObject.Length; i++)
+            {
+                lightsObject[i].enabled = false;
+            }
+        }
+        else
+        {
+            if (panel.active)
+            {
+                lightsObject[0].enabled = false;
+            }
+        }
+        
+        if (sr.sprite != sprites[1])
+        {            
             sr.sprite = sprites[1];
             bc.enabled = false;
         }      

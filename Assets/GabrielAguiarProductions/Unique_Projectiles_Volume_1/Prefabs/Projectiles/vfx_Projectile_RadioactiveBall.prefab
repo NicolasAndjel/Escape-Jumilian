@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4387073695559136}
-  - component: {fileID: 114908792907059822}
   - component: {fileID: 199924835779171580}
   - component: {fileID: 198056607281063266}
   - component: {fileID: 65019340949975606}
   - component: {fileID: 54151073696178080}
+  - component: {fileID: 599857742}
   m_Layer: 0
   m_Name: vfx_Projectile_RadioactiveBall
   m_TagString: Untagged
@@ -35,27 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114908792907059822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997882812359486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12ba759cd568c0e47a7018ab70867a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 25
-  accuracy: 95
-  fireRate: 2
-  muzzlePrefab: {fileID: 1072413172352700, guid: e0de14d95a9f81a4991fc94d9985dc88,
-    type: 3}
-  hitPrefab: {fileID: 1678266536710752, guid: e9f2eebd4297d16468c064220662eea2, type: 3}
-  shotSFX: {fileID: 0}
-  hitSFX: {fileID: 0}
-  trails: []
 --- !u!199 &199924835779171580
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -370,8 +349,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 1.4
+      scalar: 0.7
+      minScalar: 0.7
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -687,7 +666,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 1
     maxNumParticles: 2
-    size3D: 1
+    size3D: 0
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
@@ -1470,8 +1449,8 @@ ParticleSystem:
   UVModule:
     enabled: 1
     mode: 0
-    timeMode: 0
-    fps: 30
+    timeMode: 2
+    fps: 25
     frameOverTime:
       serializedVersion: 2
       minMaxState: 1
@@ -4773,3 +4752,14 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!210 &599857742
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997882812359486}
+  m_Enabled: 1
+  m_SortingLayerID: -517645625
+  m_SortingLayer: 1
+  m_SortingOrder: 3

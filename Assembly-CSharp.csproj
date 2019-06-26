@@ -76,6 +76,10 @@
     <Compile Include="Assets\GabrielAguiarProductions\Unique_Projectiles_Volume_1\Scripts\SaveParticleSystemScript.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Unique_Projectiles_Volume_1\Scripts\Serializables.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Unique_Projectiles_Volume_1\Scripts\SpawnProjectilesScript.cs" />
+    <Compile Include="Assets\Menu\Scripts\AnimatorFunctions.cs" />
+    <Compile Include="Assets\Menu\Scripts\MenuButton.cs" />
+    <Compile Include="Assets\Menu\Scripts\MenuButtonController.cs" />
+    <Compile Include="Assets\Press.cs" />
     <Compile Include="Assets\Scripts\Activables.cs" />
     <Compile Include="Assets\Scripts\Activator.cs" />
     <Compile Include="Assets\Scripts\AirForce.cs" />
@@ -96,9 +100,11 @@
     <Compile Include="Assets\Scripts\HabilitiesTwo.cs" />
     <Compile Include="Assets\Scripts\HerosMovement.cs" />
     <Compile Include="Assets\Scripts\Interruptor.cs" />
+    <Compile Include="Assets\Scripts\LevelLoader.cs" />
     <Compile Include="Assets\Scripts\MovableObjects.cs" />
     <Compile Include="Assets\Scripts\Oxygen.cs" />
     <Compile Include="Assets\Scripts\OxygenHeroMovement.cs" />
+    <Compile Include="Assets\Scripts\OxygenPlayerHabilities.cs" />
     <Compile Include="Assets\Scripts\Panels.cs" />
     <Compile Include="Assets\Scripts\ParallaxEffect.cs" />
     <Compile Include="Assets\Scripts\Pistol.cs" />
@@ -113,6 +119,7 @@
     <Compile Include="Assets\Scripts\Shotgun.cs" />
     <Compile Include="Assets\Scripts\Steam.cs" />
     <Compile Include="Assets\Scripts\Vent.cs" />
+    <Compile Include="Assets\Scripts\VisibleNear.cs" />
     <Compile Include="Assets\Scripts\Weapons.cs" />
     <Compile Include="Assets\Scripts\Wind.cs" />
     <None Include="Assets\2D game kit.txt" />

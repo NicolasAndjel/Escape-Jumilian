@@ -128,7 +128,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b281d18de29c9b146be0081d5c04198a
+      spriteID: ee7064e69a72a9849a0448fbac57912d
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 273e568d5f60ef94cbe8f08786fe1dd6
+      spriteID: a55c93275f6f6d04f84f837f38bdff36
       vertices: []
       indices: 
       edges: []
@@ -168,7 +168,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c290ea42342d8b94a80befa4a71bee60
+      spriteID: 6ddb1c8a53475f24aae859dfae398e8d
       vertices: []
       indices: 
       edges: []
@@ -188,7 +188,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c76a3c05b0aa7044b7c31899f0e00a8
+      spriteID: 6985b39eee71c73498c111333a7a3493
       vertices: []
       indices: 
       edges: []
@@ -208,7 +208,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cacd107e2d712c6499995d912c7d253d
+      spriteID: d8b55a71f4b93ab438d382fc3ca7269e
       vertices: []
       indices: 
       edges: []
@@ -228,7 +228,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07380c27cb363d347812260ab083e04d
+      spriteID: 50c6446986170134ba4283ca0e911a26
       vertices: []
       indices: 
       edges: []
@@ -248,7 +248,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46e4ad14b0ade7b4d9e1b38f3bb66b6d
+      spriteID: 74ef10ee6cc2b404f930eb18b567684e
       vertices: []
       indices: 
       edges: []
@@ -268,7 +268,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca4d8868cdea77b4b823edd1ff37760b
+      spriteID: 4c9a11c64178ffa438eaeaecde238135
       vertices: []
       indices: 
       edges: []
@@ -277,10 +277,10 @@ TextureImporter:
       name: Puertas,Panels,Plataforms_8
       rect:
         serializedVersion: 2
-        x: 691
-        y: 86
-        width: 94
-        height: 330
+        x: 517
+        y: 73
+        width: 104
+        height: 343
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,7 +288,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 585381987dbfa544ea8d2dd38b158a5a
+      spriteID: 0fdb2f331dec7174fb2d0b9c34a283bd
       vertices: []
       indices: 
       edges: []
@@ -297,9 +297,9 @@ TextureImporter:
       name: Puertas,Panels,Plataforms_9
       rect:
         serializedVersion: 2
-        x: 855
+        x: 683
         y: 86
-        width: 313
+        width: 427
         height: 330
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -308,7 +308,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a40500232427f941ad97efd81d4255c
+      spriteID: 938bf266d2c4ef34f9f50d4d40766a95
       vertices: []
       indices: 
       edges: []
@@ -328,7 +328,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 445feb0d493a543409502f94c7093157
+      spriteID: a9c4613a4ebe15e499c87254c3db8b6f
       vertices: []
       indices: 
       edges: []
@@ -348,7 +348,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b5cf8fdaceb69845a52b2f7aa24edf3
+      spriteID: 915a14b990573094698e6b233d4fc249
       vertices: []
       indices: 
       edges: []
@@ -368,7 +368,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dd42ef868229b04985fb8086f67173d
+      spriteID: 2063f27b9717fdf459bd6ac99d47faa5
       vertices: []
       indices: 
       edges: []
@@ -388,7 +388,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 065f35c116b430245aac6c2135befa4b
+      spriteID: 60618b83a8a161e499fd9d5bd6b3329a
       vertices: []
       indices: 
       edges: []
@@ -408,7 +408,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7917525e0109a8742a8ec71e8f6f48b1
+      spriteID: 23e86fac6d290884ea583bf8403af508
       vertices: []
       indices: 
       edges: []
@@ -428,7 +428,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c13c2b4b99d7834a970d6223cc0f415
+      spriteID: fae3933df8fd2f14793bd7065aeeeecf
       vertices: []
       indices: 
       edges: []
@@ -448,27 +448,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f826841d7c83964aa2b136d921248fb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Puertas,Panels,Plataforms_17
-      rect:
-        serializedVersion: 2
-        x: 668
-        y: 15
-        width: 81
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0df25e4d1ca9b04478d61484af601651
+      spriteID: 728e2407f317f7a4bb3f3fd7a304e556
       vertices: []
       indices: 
       edges: []
@@ -477,10 +457,10 @@ TextureImporter:
       name: Puertas,Panels,Plataforms_18
       rect:
         serializedVersion: 2
-        x: 755
+        x: 753
         y: 15
         width: 81
-        height: 60
+        height: 58
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -488,7 +468,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8af5e779354b4c34da3510121c3fbc12
+      spriteID: c020d47df4e7d1845b0c323b97e709d4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Puertas,Panels,Plataforms_17
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 15
+        width: 81
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bfd471a7bc2b0f41b8e3716f39ae003
       vertices: []
       indices: 
       edges: []

@@ -17,12 +17,13 @@ public class CameraScript : MonoBehaviour
     private Vector3 velocity;
     public CameraState state;
     public float minZoom = 7f;
-    public float maxZoom = 3f;
+    public float maxZoom = 3f;   
 
     private void Start()
     {
         state = CameraState.ON;
         cam = GetComponent<Camera>();
+
     }
 
     private void LateUpdate()
@@ -40,7 +41,7 @@ public class CameraScript : MonoBehaviour
             if (targets.Length == 0) return;
 
             Move();
-            Zoom();
+            Zoom();            
         }
         
     }
@@ -85,6 +86,6 @@ public class CameraScript : MonoBehaviour
             bounds.Encapsulate(targets[i].position);
         }
         return bounds.center;
-    }
+    }   
 
 }

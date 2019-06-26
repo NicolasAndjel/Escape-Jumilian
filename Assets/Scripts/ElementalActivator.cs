@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ElementalActivator : MonoBehaviour
 {
+    public float damageToCharater;
     public float amountToFill;
     public float timeToFill;
     public bool filled;
@@ -27,7 +28,7 @@ public class ElementalActivator : MonoBehaviour
         if (0 > amountToFill)
         {
             filled = true;
-            amountToFill = 0;
+            amountToFill = 1;
             canBeFilled = false;
         }
 
@@ -48,7 +49,7 @@ public class ElementalActivator : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         canBeFilled = true;
-        currentPlayer = collision.gameObject.GetComponent<PlayersHabilities>();
+        currentPlayer = collision.gameObject.GetComponent<OxygenPlayerHabilities>();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -66,6 +67,7 @@ public class ElementalActivator : MonoBehaviour
                 if (timer > timeToFill)
                 {
                     amountToFill-=0.5f/amountToFill;
+                    currentPlayer.GetComponent<Damaggeable>().health -= damageToCharater;
                     timer = 0;
                 }
                 timer += Time.deltaTime;

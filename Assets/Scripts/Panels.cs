@@ -15,10 +15,9 @@ public class Panels : Activables
 
     public override void Update()
     {        
-        if (active)
+        if (IsActive())
         {
-            Activate();
-            active = false;
+            Activate();            
         }
     }
 

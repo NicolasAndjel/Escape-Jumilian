@@ -150,26 +150,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Interruptor_2
-      rect:
-        serializedVersion: 2
-        x: 184
-        y: 378
-        width: 408
-        height: 185
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be68060eb5df9ad41b17cb70bc442899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Interruptor_3
       rect:
         serializedVersion: 2
@@ -185,6 +165,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d18987b924b4de640ab477e1bce4cdcb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interruptor_2
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 359
+        width: 406
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d236daf71d3ff43b67b5bf00310757
       vertices: []
       indices: 
       edges: []
