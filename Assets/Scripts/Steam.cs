@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Steam : MonoBehaviour
 {
-    public float TimeActive;
+    public float timeActive;
+    public float timeInactive;
     public float damage;
     private SpriteRenderer sr;
     BoxCollider2D bc;
-    private float timer;
-    bool active;
+    private float timer;      
     public bool fading;
 
     private void Start()
@@ -21,7 +21,7 @@ public class Steam : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > TimeActive)
+        if (timer > timeActive)
         {
             if (fading)
             {
@@ -33,7 +33,7 @@ public class Steam : MonoBehaviour
                     fading = false;
                 }
             }
-            else
+            else if (timer > timeInactive)
             {
                 sr.color = FadeAway(sr.color.a, 1);
                 if (sr.color.a > 0.9)
@@ -43,7 +43,6 @@ public class Steam : MonoBehaviour
                     fading = true;
                 }
             }
-            
         }
 
         if (sr.color.a > 0)
@@ -53,9 +52,8 @@ public class Steam : MonoBehaviour
         }
         else
         {
-            bc.enabled = false;
-        
-}
+            bc.enabled = false;        
+        }
     }
 
     private void DoDamage(float amount, GameObject go)

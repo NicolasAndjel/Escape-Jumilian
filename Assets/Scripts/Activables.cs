@@ -50,10 +50,13 @@ public class Activables : MonoBehaviour
                 else active = false;
                 count = 0;
             }
-            else if (panel.IsActive())
+        }
+        else if (panel != null)
+        {
+            if (panel.IsActive())
             {
                 active = true;
             }
-        }       
+        }
     }
 }

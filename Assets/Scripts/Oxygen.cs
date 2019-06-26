@@ -15,11 +15,25 @@ public class Oxygen : PlayerElement
     {
         base.Start();
         tim = 0;
+        ph = GetComponent<OxygenPlayerHabilities>();
     }
 
     // Update is called once per frame
     public override void Update()
     {
+        if (dm.health < (dm.maxH * 0.3) && (distance > 2))
+        {
+            if (!pointer.activeInHierarchy)
+                pointer.SetActive(true);
+            PointToAlly();
+        }
+        else
+        {
+            if (pointer.activeInHierarchy)
+            {
+                pointer.SetActive(false);
+            }
+        }
         PowerOverTime();
         Refill();
         SpecialAttack();
@@ -28,8 +42,9 @@ public class Oxygen : PlayerElement
 
     void SpecialAttack()
     {
-        if (Input.GetButtonDown(ph.elementButton) && tim > timeBtwAirs)
+        if (Input.GetButtonDown(ph.elementButton) && tim > timeBtwAirs && dm.health > (OxygenCost + 5))
         {
+            Instantiate(costUi[0], GetCostSpawn().position, Quaternion.identity, transform);
             GameObject tempAir = Instantiate(airExplotion, ph.GetBulletSpawn().position, Quaternion.identity);     
             AirForce tempScript = tempAir.transform.GetChild(0).GetComponent<AirForce>();
             tempScript.force = ph.hm.GetFacing();
@@ -37,7 +52,7 @@ public class Oxygen : PlayerElement
             ph.hm.anim.SetBool("IsShooting", true);
             GetComponent<Damaggeable>().health -= OxygenCost;
         }
-        else ph.hm.anim.SetBool("IsShooting", false);
+        else if(Input.GetButtonUp(ph.elementButton)) ph.hm.anim.SetBool("IsShooting", false);
         tim += Time.deltaTime;
     }    
 }

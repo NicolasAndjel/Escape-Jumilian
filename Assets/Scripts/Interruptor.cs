@@ -4,65 +4,103 @@ using UnityEngine;
 
 public class Interruptor : MonoBehaviour
 {
+    public bool activatedByPlasma;
+    public bool isWorking;
     public bool active;
+    
     public SpriteRenderer sr;    
     public Sprite[] sprites;
 
     
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();      
+        if (activatedByPlasma)
+            isWorking = false;
+        else isWorking = true;
+        sr = GetComponent<SpriteRenderer>();
+        IsWorkingUI();
     }
 
     private void Update()
     {
+        IsWorkingUI();
+        if (isWorking)
         ActiveUI(active);       
+    }
+
+    private void IsWorkingUI()
+    {
+        if (isWorking)
+        {
+            sr.sprite = sprites[1];
+        }
+        else
+        {
+            sr.sprite = sprites[0];           
+        }
     }
 
     private void ActiveUI(bool on)
     {
         if (on)
         {
-            if (sr.sprite != sprites[0])
-            sr.sprite = sprites[0];
+            sr.sprite = sprites[2];
         }
         else
         {
-            if (sr.sprite != sprites[1])
             sr.sprite = sprites[1];
         }
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {        
-        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 19)
+    {  
+        if (isWorking)
         {
-            foreach (ContactPoint2D hitPos in collision.contacts)
+            if (collision.gameObject.layer == 8 || collision.gameObject.layer == 19)
             {
-                if (hitPos.normal.y < -0.5)
+                foreach (ContactPoint2D hitPos in collision.contacts)
                 {
-                    active = true;
+                    if (hitPos.normal.y < -0.5)
+                    {
+                        active = true;
+                    }
                 }
             }
-        }       
+        }        
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (activatedByPlasma)
+        {
+            if (collision.gameObject.layer == 18)
+            {
+                isWorking = true;
+                activatedByPlasma = false;
+            }    
+        }
+    }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 19)
+        if (isWorking)
         {
-            active = true;
+            if (collision.gameObject.layer == 8 || collision.gameObject.layer == 19)
+            {
+                active = true;
+            }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
-    {               
-        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 19)
+    {
+        if (isWorking)
         {
-            active = false;
-        }              
+            if (collision.gameObject.layer == 8 || collision.gameObject.layer == 19)
+            {
+                active = false;
+            }
+        }
     }
-
 
 }

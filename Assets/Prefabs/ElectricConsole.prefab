@@ -68,7 +68,7 @@ SpriteRenderer:
   m_SortingLayerID: -517645625
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300020, guid: d729e596c80ebbf4a8640d3af2af8fe0, type: 3}
+  m_Sprite: {fileID: 21300022, guid: d729e596c80ebbf4a8640d3af2af8fe0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -571,8 +571,7 @@ PrefabInstance:
       propertyPath: active
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5644034397934145360, guid: 33b3c2c0e83e755438e9d764f1691aeb, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33b3c2c0e83e755438e9d764f1691aeb, type: 3}
 --- !u!1 &4596856873185648043 stripped
 GameObject:

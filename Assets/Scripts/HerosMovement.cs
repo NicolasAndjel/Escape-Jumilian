@@ -11,7 +11,7 @@ public class HerosMovement : MonoBehaviour
 {    
     [HideInInspector]
     public Rigidbody2D rb;
-    SpriteRenderer sr;   
+    SpriteRenderer sr;    
     public Animator anim;
     public string player;
     public string horizontalAxisName;
@@ -32,11 +32,14 @@ public class HerosMovement : MonoBehaviour
     private Vector3 finalSpeed;
     private Vector3 lastFacing;
     public List<GameObject> currentCollisions;
+    bool tryingToJump;
+    public bool death;
     
 
     // Start is called before the first frame update
     public virtual void Start()
-    {
+    {        
+        tryingToJump = false;
         currentCollisions = new List<GameObject>();
         lastFacing = Vector3.right;
         horizontalAxisName = horizontalAxisName + player;       
@@ -50,34 +53,37 @@ public class HerosMovement : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        StayGrounded();
+        if (!death)
+        {       
 
-        direction = Input.GetAxis(horizontalAxisName);
+            direction = Input.GetAxis(horizontalAxisName);
 
-        if (Input.GetKeyDown(jumpButton))
-        {
-            Jump();
-        }
+            if (Input.GetKeyDown(jumpButton))
+            {
+                if (grounded)
+                    Jump();
+            }
 
-        if (enableCounterWind)
-        {
-            CounterWind();
-        }
+            if (enableCounterWind)
+            {
+                CounterWind();
+            }
 
-        SetFacing(direction);
+            SetFacing(direction);
 
-        Move(direction);
+            Move(direction);
+        }        
 
     }  
     private void SetFacing(float horizontal)
     {
         if (horizontal < 0)
         {
-            sr.flipX = true;
+            sr.flipX = true;            
         }
         else if (horizontal > 0)
         {
-            sr.flipX = false;
+            sr.flipX = false;            
         }        
     }
 
@@ -100,40 +106,22 @@ public class HerosMovement : MonoBehaviour
         }
         return facing;
     }
-
-    private void StayGrounded()
-    {
-        if (!grounded)
-        {
-            for (int i = 0; i < currentCollisions.Count; i++)
-            {
-                if (currentCollisions[i].layer == 13)
-                {
-                    grounded = true;
-                }
-            }
-        }               
-    }
-
+    
     private void Move(float horizontal)
     {
         finalSpeed = new Vector3(horizontal * speed, rb.velocity.y, 0);
         rb.velocity = finalSpeed;
         anim.SetFloat("WalkSpeed", Mathf.Abs(finalSpeed.normalized.x));
         anim.SetFloat("JumpSpeed", rb.velocity.normalized.y);
-        anim.SetBool("IsJumping", isOnAir);
+        anim.SetBool("IsJumping", isOnAir);        
     }
 
     public void Jump()
-    {
-        if (grounded)
-        {
-            isOnAir = true;
-            rb.velocity = Vector3.zero;
-            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-            grounded = false;
-        }
-    
+    {        
+        isOnAir = true;
+        rb.velocity = Vector3.zero;
+        rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+        grounded = false;   
     }
 
     private void CounterWind()
@@ -153,6 +141,7 @@ public class HerosMovement : MonoBehaviour
         Vector3 force = Vector3.up * knockUpAmount;
         rb.AddForce(force, ForceMode2D.Impulse);       
     }
+   
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -173,34 +162,42 @@ public class HerosMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!currentCollisions.Contains(collision.gameObject))
-        {
-            currentCollisions.Add(collision.gameObject);
-        }
-
-        foreach(ContactPoint2D hitPos in collision.contacts)
+        foreach (ContactPoint2D hitPos in collision.contacts)
         {
             if (hitPos.normal.y == 1)
-            {
+            {                
                 isOnAir = false;
                 grounded = true;
+                tryingToJump = false;
 
                 if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
                 {                   
                     transform.SetParent(collision.transform);
                 }
             }
-        }     
+        }
+    }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        foreach (ContactPoint2D hitPos in collision.contacts)
+        {
+            if (hitPos.normal.y == 1)
+            {                
+                isOnAir = false;
+                grounded = true;
+                tryingToJump = false;
+
+                if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
+                {
+                    transform.SetParent(collision.transform);
+                }
+            }
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (currentCollisions.Contains(collision.gameObject))
-        {
-            currentCollisions.Remove(collision.gameObject);
-        }
-
         if (collision.gameObject.layer == 14)
         {
             grounded = false;
@@ -208,11 +205,13 @@ public class HerosMovement : MonoBehaviour
 
         if (collision.gameObject.layer == 13)
         {
+            tryingToJump = true;
             grounded = false;           
         }
 
         if (collision.gameObject.layer == 10)
         {
+            tryingToJump = true;
             grounded = false;            
             transform.SetParent(null);            
         }
@@ -221,8 +220,7 @@ public class HerosMovement : MonoBehaviour
         {
             grounded = false;
             transform.SetParent(null);           
-        }
-
+        }       
     }
 }
 

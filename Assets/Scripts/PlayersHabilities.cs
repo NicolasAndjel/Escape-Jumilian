@@ -20,10 +20,11 @@ public class PlayersHabilities : MonoBehaviour
     public float damage;
     public AnimationClip shot;
     public float shotTime;
+    
 
     // Start is called before the first frame update
-    void Start()
-    {
+    public virtual void Start()
+    {       
         shotTime = shot.averageDuration;
         hm = GetComponent<HerosMovement>();
         fireButton += hm.player;
@@ -33,13 +34,13 @@ public class PlayersHabilities : MonoBehaviour
         _delay = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {        
-        Shoot(GetBulletSpawn());            
-    }
-   
-    public Transform GetBulletSpawn()
+    public virtual void Update()
+    {
+        GetBulletSpawn();
+    }   
+
+
+    public virtual Transform GetBulletSpawn()
     {
         Transform a = null;
         if (hm.GetFacing() == Vector3.left)
@@ -62,26 +63,23 @@ public class PlayersHabilities : MonoBehaviour
         if (Input.GetButtonUp(fireButton))
         {
             hm.anim.SetBool("IsShooting", false);
-        }       
+        }
         _delay += Time.deltaTime;
     }
 
     public void SpawnBullets(Transform bulletSpawn)
-    {
-        if (!hm.isOnAir)
+    {        
+        if (_delay > shotTime)
         {
-            if (_delay > shotTime)
-            {
-                Instantiate(muzzle, bulletSpawn.position, Quaternion.identity);
-                GameObject tempBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
-                Bullet bulletScript = tempBullet.GetComponent<Bullet>();                
-                bulletScript.damage = damage;
-                bulletScript.direction = hm.GetFacing();
-                bulletScript.time = 10;
-                _delay = 0;                
-                hm.anim.SetBool("IsShooting", true);
-            }
-        }         
+            Instantiate(muzzle, bulletSpawn.position, Quaternion.identity);
+            GameObject tempBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
+            Bullet bulletScript = tempBullet.GetComponent<Bullet>();                
+            bulletScript.damage = damage;
+            bulletScript.direction = hm.GetFacing();
+            bulletScript.time = 10;
+            _delay = 0;                
+            hm.anim.SetBool("IsShooting", true);
+        }                
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
