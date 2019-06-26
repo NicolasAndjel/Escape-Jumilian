@@ -404,6 +404,8 @@ MonoBehaviour:
   death: 0
   canDJ: 0
   oxygenCost: 10
+  canDjtimer: 0
+  didDJ: 0
 --- !u!114 &798256683495371085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,7 +454,7 @@ MonoBehaviour:
   lifeUI: {fileID: 0}
   losingLifeUI: {fileID: 1246591349}
   layerToGetDamage: 15
-  layerToGetDamge2: -6
+  layerToGetDamge2: 25
   ColorWhenDamaged: {r: 0.7960785, g: 0.019607844, b: 0.019607844, a: 1}
   instaKill: -6
   currentState: 0
@@ -485,6 +487,8 @@ MonoBehaviour:
   bullet: {fileID: 2258328453998653747, guid: 4f149abf73b043248920b62f4400769d, type: 3}
   pointer: {fileID: 8215913763245326651}
   distance: 0
+  minDistance: 0.7
+  minDistanceSave: 0
   timeBtwBullets: 1
   airExplotion: {fileID: 6088324234690736654, guid: a58398eaab840aa499651aeeda5b143a,
     type: 3}

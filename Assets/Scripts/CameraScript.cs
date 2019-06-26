@@ -23,19 +23,17 @@ public class CameraScript : MonoBehaviour
     {
         state = CameraState.ON;
         cam = GetComponent<Camera>();
-
     }
 
     private void LateUpdate()
-    {
-        
-            for (int i = 0; i < targets.Length; i++)
-            {
-                if (targets[i] == null)
-                {   
-                    state = CameraState.OFF;
-                }
+    {        
+        for (int i = 0; i < targets.Length; i++)
+        {
+            if (targets[i] == null)
+            {   
+                state = CameraState.OFF;
             }
+        }
         if (state == CameraState.ON)
         {
             if (targets.Length == 0) return;

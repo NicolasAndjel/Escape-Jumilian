@@ -10,17 +10,19 @@ public class Oxygen : PlayerElement
     public float OxygenCost;
     float tim;
 
+
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
+        minDistanceSave = minDistance;
         tim = 0;
         ph = GetComponent<OxygenPlayerHabilities>();
     }
 
     // Update is called once per frame
     public override void Update()
-    {
+    {        
         if (dm.health < (dm.maxH * 0.3) && (distance > 2))
         {
             if (!pointer.activeInHierarchy)

@@ -7,18 +7,20 @@ public class Panels : Activables
     public GameObject[] activatedUI;
     public SpriteRenderer lights;
     public Sprite lightSpriteActive;
+    public Sprite startSprite;
 
     public override void Start()
     {
-        
+        startSprite = lights.sprite;
     }
 
     public override void Update()
-    {        
+    {
         if (IsActive())
         {
-            Activate();            
+            Activate();
         }
+        else Deactivate();
     }
 
     public bool IsActive()
@@ -32,6 +34,16 @@ public class Panels : Activables
         {
             Activate();
         }
+    }
+
+    public void Deactivate()
+    {
+        active = false;
+        for (int i = 0; i < activatedUI.Length; i++)
+        {
+            activatedUI[i].SetActive(false);
+        }
+        lights.sprite = startSprite;
     }
 
     public void Activate()

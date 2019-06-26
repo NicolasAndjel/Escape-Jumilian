@@ -16,6 +16,8 @@ public class PlayerElement : MonoBehaviour
     public GameObject bullet;
     public GameObject pointer;
     public float distance;
+    public float minDistance;
+    public float minDistanceSave;
     Vector2 otherpjdir;
     float delay;
     public float timeBtwBullets;
@@ -25,6 +27,7 @@ public class PlayerElement : MonoBehaviour
     // Start is called before the first frame update
     public virtual void Start()
     {
+        minDistanceSave = minDistance;
         timer = 0;
         delay = timeBtwBullets;
         ph = GetComponent<PlayersHabilities>();
@@ -35,11 +38,11 @@ public class PlayerElement : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        if (dm.health < (dm.maxH * 0.3) && (distance > 2) && pho != null)
+        if ((dm.health < (dm.maxH * 0.3)) && ((distance > 2) && pho != null))
         {
             if (!pointer.activeInHierarchy)
-            pointer.SetActive(true);
-            PointToAlly();
+                pointer.SetActive(true);
+                PointToAlly();
         }
         else
         {
@@ -72,8 +75,8 @@ public class PlayerElement : MonoBehaviour
         {
             return;
         }
-        distance = Vector3.Distance(otherPlayerDm.position, transform.position);
-        if (distance < 0.7f)
+        distance = Vector3.Distance(otherPlayerDm.position, transform.position); 
+        if (distance < minDistance)
         {
             if (Input.GetButton(ph.useButton) && (Input.GetButton(pho.useButton)))
             {
@@ -92,7 +95,7 @@ public class PlayerElement : MonoBehaviour
                 timer += Time.deltaTime;
             }
             else healingUi.SetActive(false);
-        }        
+        }
     }
 
     public Transform GetCostSpawn()
@@ -108,25 +111,25 @@ public class PlayerElement : MonoBehaviour
 
     public void ShootElement()
     {
-        
+
         if (Input.GetButton(ph.elementButton) && dm.health > 12)
-        {            
+        {
             SpawnBullets(ph.GetBulletSpawn());
             delay += Time.deltaTime;
-        }        
+        }
         if (Input.GetButtonUp(ph.elementButton))
         {
-            ph.hm.anim.SetBool("IsShooting", false);          
+            ph.hm.anim.SetBool("IsShooting", false);
         }
     }
 
     public void SpawnBullets(Transform bulletSpawn)
-    {        
+    {
         if (delay >= timeBtwBullets)
         {
-            Instantiate(costUi[0], GetCostSpawn().position, Quaternion.identity, transform);            
+            Instantiate(costUi[0], GetCostSpawn().position, Quaternion.identity, transform);
             if (muzzle != null)
-            Instantiate(muzzle, bulletSpawn.position, Quaternion.identity);
+                Instantiate(muzzle, bulletSpawn.position, Quaternion.identity);
             dm.health = dm.health - 10;
             GameObject tempBullet = Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
             Bullet bulletScript = tempBullet.GetComponent<Bullet>();
@@ -135,6 +138,7 @@ public class PlayerElement : MonoBehaviour
             bulletScript.time = 3;
             delay = 0;
             ph.hm.anim.SetBool("IsShooting", true);
-        }        
+        }
     }
 }
+   

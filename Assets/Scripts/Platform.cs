@@ -26,13 +26,13 @@ public class Platform : Activables
         Move();       
 	}
 
-    public void Move()
+    public virtual void Move()
     {
         if (active)
         {
             Vector3 distance = waypoints[currentWp].position - transform.position;
 
-            if (distance.magnitude > speed * Time.deltaTime)
+            if (distance.magnitude > speed * 2 * Time.deltaTime)
             {
                 transform.position += distance.normalized * speed * Time.deltaTime;
             }
@@ -43,8 +43,8 @@ public class Platform : Activables
 
                 if (currentWp >= waypoints.Length || currentWp < 0)
                 {
-                    direction *= -1;
-                    currentWp += direction;
+                    
+                    currentWp = 0;
                 }
             }
         }        

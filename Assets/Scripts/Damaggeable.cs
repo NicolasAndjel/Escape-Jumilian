@@ -69,7 +69,10 @@ public class Damaggeable : MonoBehaviour
     {
         if (collision.gameObject.layer == layerToGetDamage || collision.gameObject.layer == layerToGetDamge2 || collision.gameObject.layer == 11)
         {
+            if (collision.gameObject.GetComponent<Bullet>())
             GetDamage(collision.gameObject.GetComponent<Bullet>().damage);
+            if (collision.gameObject.GetComponent<BossBullet>())
+                GetDamage(collision.gameObject.GetComponent<BossBullet>().damage);
             Destroy(collision.gameObject);
         }        
     }    
@@ -99,8 +102,10 @@ public class Damaggeable : MonoBehaviour
         if (!enemie)
         {
             ph.death = MustDie();   
-            lifeUI.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
+            lifeUI.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
             GetComponent<HerosMovement>().speed = 0;
+            bc.enabled = false;
+            rb.gravityScale = 0;
         }
         else
         {
@@ -111,8 +116,10 @@ public class Damaggeable : MonoBehaviour
             }
         }
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        bc.enabled = false;        
+        bc.enabled = false;  
+        
         anim.Play("Die");
+        
         dead = true;       
         sr.color = startColor;
     }

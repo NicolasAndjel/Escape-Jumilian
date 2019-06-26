@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ElementalActivator : MonoBehaviour
-{
+{    
     public float damageToCharater;
     public float amountToFill;
     public float timeToFill;
@@ -40,16 +40,22 @@ public class ElementalActivator : MonoBehaviour
 
         uI.transform.localScale = new Vector3(uI.transform.localScale.x, (startSize * (amountToFill/startSize)), uI.transform.localScale.z);
 
-        if (ObjToActivate.activeSelf == false && filled)
+        if (filled)
         {
             ObjToActivate.SetActive(true);
         }
+        else ObjToActivate.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        canBeFilled = true;
-        currentPlayer = collision.gameObject.GetComponent<OxygenPlayerHabilities>();
+        
+        if (collision.gameObject.layer == layerToGetActivated)
+        {
+            canBeFilled = true;
+            currentPlayer = collision.gameObject.GetComponent<OxygenPlayerHabilities>();
+        }
+        else currentPlayer = null;
     }
 
     private void OnTriggerExit2D(Collider2D collision)

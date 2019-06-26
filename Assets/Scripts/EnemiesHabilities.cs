@@ -64,11 +64,12 @@ public class EnemiesHabilities : MonoBehaviour
                 target.GetDamage(damage);
                 tick = 0;
             }
-            tick += Time.deltaTime;            
             if (anim.GetBool("Attacking"))
-            anim.SetBool("Attacking", false);
+                anim.SetBool("Attacking", false);
         }
-        else tick = 0;
+        
+        tick += Time.deltaTime;
+        
     }
 
     private void GetStunt()

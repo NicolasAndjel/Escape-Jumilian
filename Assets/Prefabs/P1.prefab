@@ -390,7 +390,7 @@ MonoBehaviour:
   lifeUI: {fileID: 0}
   losingLifeUI: {fileID: 399475626}
   layerToGetDamage: 15
-  layerToGetDamge2: -6
+  layerToGetDamge2: 25
   ColorWhenDamaged: {r: 0.7960785, g: 0, b: 0, a: 1}
   instaKill: -6
   currentState: 0
@@ -423,6 +423,8 @@ MonoBehaviour:
   bullet: {fileID: 599857736, guid: 6f41cce0c7fe34c42bc69cacefbd8508, type: 3}
   pointer: {fileID: 7117048016864066388}
   distance: 0
+  minDistance: 0.7
+  minDistanceSave: 0
   timeBtwBullets: 0.75
 --- !u!50 &856497757679025832
 Rigidbody2D:

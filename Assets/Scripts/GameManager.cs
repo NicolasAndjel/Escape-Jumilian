@@ -10,18 +10,28 @@ public class GameManager : MonoBehaviour
     public GameObject p1;
     public GameObject p2;
     public List<EnemiesHabilities> aliens;
+    public Scene scene;
+    public bool boss;
     
     // Start is called before the first frame update
     void Start()
-    {       
+    {
+        scene = SceneManager.GetActiveScene();
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if (p1 == null || p2 == null)
+    {        
+        if (!boss)
         {
-            SceneManager.LoadScene("Level1");
+
+        }
+        if (scene.name == "Level2")
+        {
+            if (!p1.activeInHierarchy && !p2.activeInHierarchy)
+            {
+                SceneManager.LoadScene("Boss");
+            }
         }
     }
 
@@ -33,4 +43,5 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
 }

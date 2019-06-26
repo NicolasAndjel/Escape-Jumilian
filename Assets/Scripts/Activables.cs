@@ -57,6 +57,7 @@ public class Activables : MonoBehaviour
             {
                 active = true;
             }
+            else active = false;
         }
     }
 }

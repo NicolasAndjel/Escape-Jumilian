@@ -7,6 +7,7 @@ public class Press : MonoBehaviour
     public Transform spawn;
     public GameObject dust;
     public float damage;
+    public BoxCollider2D otherCollider;
 
     private void DoDamage(float amount, GameObject go)
     {
@@ -19,13 +20,15 @@ public class Press : MonoBehaviour
         {
             if (hitPos.normal.y == 1)
             {
+                Debug.Log(gameObject.name);
                 Debug.Log(hitPos.normal.y);
+                Instantiate(dust, spawn.position, Quaternion.identity);
                 if (collision.gameObject.layer == 8)
                 {
+                    collision.gameObject.GetComponent<HerosMovement>().KnockUp();
                     DoDamage(damage, collision.gameObject);
                     collision.gameObject.GetComponent<HerosMovement>().KnockUp();
-                }                
-                Instantiate(dust, spawn.position, Quaternion.identity);
+                }
             }
         }                
     }

@@ -62,11 +62,9 @@ public class Doors : Activables
             }
         }
         else
-        {
-            if (!panel.active)
-            {
-                lightsObject[0].enabled = true;
-            }
+        { 
+          lightsObject[0].enabled = true;
+          
         }
         if (sr.sprite != sprites[0])
         {            

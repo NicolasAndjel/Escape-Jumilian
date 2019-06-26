@@ -31,6 +31,7 @@ TextureImporter:
     21300052: IdleBoss_26
     21300054: IdleBoss_27
     21300056: IdleBoss_28
+    21300058: IdleBoss_29
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -138,10 +139,10 @@ TextureImporter:
       name: IdleBoss_0
       rect:
         serializedVersion: 2
-        x: 127
-        y: 2063
-        width: 387
-        height: 295
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,7 +150,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8360b55a61e2d34c83cd0c85d01779e
+      spriteID: b6d12d127956f9743a114d5e07583881
       vertices: []
       indices: 
       edges: []
@@ -158,10 +159,10 @@ TextureImporter:
       name: IdleBoss_1
       rect:
         serializedVersion: 2
-        x: 640
-        y: 2063
-        width: 385
-        height: 295
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,7 +170,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 395c2bf32d26dcb4590522ffe74a9c3c
+      spriteID: ff18a500ec67da642ae72ba8de65f983
       vertices: []
       indices: 
       edges: []
@@ -178,10 +179,10 @@ TextureImporter:
       name: IdleBoss_2
       rect:
         serializedVersion: 2
-        x: 1151
-        y: 2063
-        width: 387
-        height: 295
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,7 +190,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cf2c71c475ffd840bcf027717f5c6a4
+      spriteID: a4d612ef40427f54eba33af5c87ed005
       vertices: []
       indices: 
       edges: []
@@ -198,10 +199,10 @@ TextureImporter:
       name: IdleBoss_3
       rect:
         serializedVersion: 2
-        x: 1663
-        y: 2064
-        width: 387
-        height: 294
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,7 +210,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 460ff70a046aaaa4b9b90cba9f814a01
+      spriteID: 45f4b81052f593e42a6567a04c9d036c
       vertices: []
       indices: 
       edges: []
@@ -218,10 +219,10 @@ TextureImporter:
       name: IdleBoss_4
       rect:
         serializedVersion: 2
-        x: 2176
-        y: 2064
-        width: 385
-        height: 295
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,7 +230,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8fcd85e10be6db4bbf3764e061b8f6e
+      spriteID: 5f6785e488b39444f87969c8d8168fcc
       vertices: []
       indices: 
       edges: []
@@ -238,10 +239,10 @@ TextureImporter:
       name: IdleBoss_5
       rect:
         serializedVersion: 2
-        x: 2687
-        y: 2064
-        width: 385
-        height: 296
+        x: 2560
+        y: 2048
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,7 +250,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d1a8e07b6fc5ac469a0bdaa83992205
+      spriteID: 4ed6408d508689f46a6b77c18c6e3d65
       vertices: []
       indices: 
       edges: []
@@ -258,10 +259,10 @@ TextureImporter:
       name: IdleBoss_6
       rect:
         serializedVersion: 2
-        x: 127
-        y: 1552
-        width: 387
-        height: 295
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,7 +270,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 351e8c36bd0e88f44bba9c14da744031
+      spriteID: 55f9f276f8323aa4ea30ec38476851ae
       vertices: []
       indices: 
       edges: []
@@ -278,10 +279,10 @@ TextureImporter:
       name: IdleBoss_7
       rect:
         serializedVersion: 2
-        x: 640
-        y: 1552
-        width: 385
-        height: 296
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,7 +290,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 600414bdbeace8444958fd14657fcaad
+      spriteID: c53bc47ab455fc64d868acb7f66dffc6
       vertices: []
       indices: 
       edges: []
@@ -298,10 +299,10 @@ TextureImporter:
       name: IdleBoss_8
       rect:
         serializedVersion: 2
-        x: 1151
-        y: 1552
-        width: 387
-        height: 296
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,7 +310,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 053b1418cedc4b94ca5bbb7dad894cdb
+      spriteID: 1d683cec9736e614abec7f3e4526233e
       vertices: []
       indices: 
       edges: []
@@ -318,10 +319,10 @@ TextureImporter:
       name: IdleBoss_9
       rect:
         serializedVersion: 2
-        x: 1663
-        y: 1552
-        width: 387
-        height: 296
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,7 +330,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0094b6f57e9791d4591f8f67fc5643c0
+      spriteID: 0cac43497c50f66489ee04c5a9826194
       vertices: []
       indices: 
       edges: []
@@ -338,10 +339,10 @@ TextureImporter:
       name: IdleBoss_10
       rect:
         serializedVersion: 2
-        x: 2176
-        y: 1552
-        width: 385
-        height: 296
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,7 +350,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40bfc574f928a6d49bb842da1b73258c
+      spriteID: c3391ad1959c29f47b58fdcadcfae744
       vertices: []
       indices: 
       edges: []
@@ -358,10 +359,10 @@ TextureImporter:
       name: IdleBoss_11
       rect:
         serializedVersion: 2
-        x: 2687
-        y: 1553
-        width: 385
-        height: 295
+        x: 2560
+        y: 1536
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,7 +370,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3129755c7c77cf84696c99aeebd31b0e
+      spriteID: 138938eb58f937e40bb7d5eea0f96e9b
       vertices: []
       indices: 
       edges: []
@@ -378,10 +379,10 @@ TextureImporter:
       name: IdleBoss_12
       rect:
         serializedVersion: 2
-        x: 127
-        y: 1040
-        width: 387
-        height: 297
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,7 +390,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b925c610ea0fea4ba41b9ad99e31112
+      spriteID: afdf135631fc753409423b70d6cee451
       vertices: []
       indices: 
       edges: []
@@ -398,10 +399,10 @@ TextureImporter:
       name: IdleBoss_13
       rect:
         serializedVersion: 2
-        x: 638
-        y: 1040
-        width: 387
-        height: 297
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -409,7 +410,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acdf0dfaccad8d6448426534b137843a
+      spriteID: 7c6edf7a423f82146bb7149242267caa
       vertices: []
       indices: 
       edges: []
@@ -418,10 +419,10 @@ TextureImporter:
       name: IdleBoss_14
       rect:
         serializedVersion: 2
-        x: 1151
-        y: 1040
-        width: 387
-        height: 297
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -429,7 +430,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aecad3a1fa4d51a498fd51907fdbac36
+      spriteID: 0d72c2268b8acd54b9a585f51b6454bd
       vertices: []
       indices: 
       edges: []
@@ -438,10 +439,10 @@ TextureImporter:
       name: IdleBoss_15
       rect:
         serializedVersion: 2
-        x: 1663
-        y: 1040
-        width: 387
-        height: 297
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -449,7 +450,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 534e8fdaefd11c64cbd512f8114534de
+      spriteID: 4fdd1afd46ae03f43bc7eaa3d14ac605
       vertices: []
       indices: 
       edges: []
@@ -458,10 +459,10 @@ TextureImporter:
       name: IdleBoss_16
       rect:
         serializedVersion: 2
-        x: 2174
-        y: 1040
-        width: 387
-        height: 297
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -469,7 +470,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62146936d42485c44bafb14e5d9a96fa
+      spriteID: 9be107bdf33cb034c84d20daed3c9b51
       vertices: []
       indices: 
       edges: []
@@ -478,10 +479,10 @@ TextureImporter:
       name: IdleBoss_17
       rect:
         serializedVersion: 2
-        x: 2687
-        y: 1040
-        width: 385
-        height: 297
+        x: 2560
+        y: 1024
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -489,7 +490,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 802285435e8e5724099faeeaabc84fdc
+      spriteID: 758779d06ae688647a082ab372e02be3
       vertices: []
       indices: 
       edges: []
@@ -498,10 +499,10 @@ TextureImporter:
       name: IdleBoss_18
       rect:
         serializedVersion: 2
-        x: 127
-        y: 529
-        width: 387
-        height: 295
+        x: 0
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -509,7 +510,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f89225c18d909ae42a9d2eb2d4066ce4
+      spriteID: ca93b4a152cb89d4bbff9c8cf7460999
       vertices: []
       indices: 
       edges: []
@@ -518,10 +519,10 @@ TextureImporter:
       name: IdleBoss_19
       rect:
         serializedVersion: 2
-        x: 640
-        y: 529
-        width: 385
-        height: 295
+        x: 512
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -529,7 +530,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32bb7083efc2148488eff0f6262a0612
+      spriteID: d565114cfb85631409262c8bd2534877
       vertices: []
       indices: 
       edges: []
@@ -538,10 +539,10 @@ TextureImporter:
       name: IdleBoss_20
       rect:
         serializedVersion: 2
-        x: 1151
-        y: 529
-        width: 387
-        height: 295
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -549,7 +550,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ec46e57a999e5e46a0dabf75945b7fd
+      spriteID: ca6e4cbeaf40e3d40a492e6979e99539
       vertices: []
       indices: 
       edges: []
@@ -558,10 +559,10 @@ TextureImporter:
       name: IdleBoss_21
       rect:
         serializedVersion: 2
-        x: 1663
-        y: 529
-        width: 387
-        height: 295
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -569,7 +570,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da12767851bc47d4d8f724887359d99b
+      spriteID: 6fe7bab9c98e43545a11ca4fad56f094
       vertices: []
       indices: 
       edges: []
@@ -578,10 +579,10 @@ TextureImporter:
       name: IdleBoss_22
       rect:
         serializedVersion: 2
-        x: 2176
-        y: 529
-        width: 385
-        height: 295
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -589,7 +590,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c78b787fd54b4a4e9139b690a6a1c6c
+      spriteID: eb12fa6584d494a4d9efa0319b1589af
       vertices: []
       indices: 
       edges: []
@@ -598,10 +599,10 @@ TextureImporter:
       name: IdleBoss_23
       rect:
         serializedVersion: 2
-        x: 2687
-        y: 527
-        width: 385
-        height: 297
+        x: 2560
+        y: 512
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -609,7 +610,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84a891937da692749bfa8814fa237a5c
+      spriteID: 9761f091bfa019e4eb81a920ff5acf59
       vertices: []
       indices: 
       edges: []
@@ -618,10 +619,10 @@ TextureImporter:
       name: IdleBoss_24
       rect:
         serializedVersion: 2
-        x: 127
-        y: 16
-        width: 387
-        height: 295
+        x: 0
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -629,7 +630,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 021c1a8ba08315244860cc4f55668264
+      spriteID: d910062f2f1a92343abd7e339db4aeb8
       vertices: []
       indices: 
       edges: []
@@ -638,10 +639,10 @@ TextureImporter:
       name: IdleBoss_25
       rect:
         serializedVersion: 2
-        x: 640
-        y: 16
-        width: 385
-        height: 295
+        x: 512
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -649,7 +650,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fe74dbc49c6b9d4ca2313abc52d6678
+      spriteID: 05cc989b99bfb234f978665758792068
       vertices: []
       indices: 
       edges: []
@@ -658,10 +659,10 @@ TextureImporter:
       name: IdleBoss_26
       rect:
         serializedVersion: 2
-        x: 1151
-        y: 16
-        width: 387
-        height: 295
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -669,7 +670,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 067ee42ff9573f84f8dd220f0d40c480
+      spriteID: b70dc63698f31df40a9c8371b3dbec3d
       vertices: []
       indices: 
       edges: []
@@ -678,10 +679,10 @@ TextureImporter:
       name: IdleBoss_27
       rect:
         serializedVersion: 2
-        x: 1663
-        y: 16
-        width: 387
-        height: 295
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -689,7 +690,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f70e2e40803b374aa0fffeae45d65a5
+      spriteID: 0dd451b3f96ea084f9aea3de3cc352e1
       vertices: []
       indices: 
       edges: []
@@ -698,10 +699,10 @@ TextureImporter:
       name: IdleBoss_28
       rect:
         serializedVersion: 2
-        x: 2176
-        y: 16
-        width: 385
-        height: 295
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -709,7 +710,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48944d0450535e24aad03c201eab4a90
+      spriteID: 20ca8ad979580fb468b6817b18d9d21b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleBoss_29
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad161b6e846221a41b63126997638d27
       vertices: []
       indices: 
       edges: []

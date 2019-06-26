@@ -34,5 +34,29 @@ public class EnemiesMovement : Platform
         }
         lastDirection = direction;
     }
-    
+
+    public override void Move()
+    {
+        if (active)
+        {
+            Vector3 distance = waypoints[currentWp].position - transform.position;
+
+            if (distance.magnitude > speed * 2 * Time.deltaTime)
+            {
+                transform.position += distance.normalized * speed * Time.deltaTime;
+            }
+            else
+            {
+                transform.position = waypoints[currentWp].position;
+                currentWp += direction;
+
+                if (currentWp >= waypoints.Length || currentWp < 0)
+                {
+                    direction *= -1;
+                    currentWp += direction;
+                }
+            }
+        }
+    }
+
 }
