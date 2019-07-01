@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public List<EnemiesHabilities> aliens;
     public Scene scene;
     public bool boss;
+    public GameObject winCanvas;
+    public GameObject loseCanvas;
     
     // Start is called before the first frame update
     void Start()
@@ -24,13 +26,23 @@ public class GameManager : MonoBehaviour
     {        
         if (!boss)
         {
-
+	    	if(p1 == null || p2 == null)
+			{
+				if(!winCanvas.activeInHierarchy)
+				{
+					loseCanvas.SetActive(true);
+				}
+			}		
         }
+
         if (scene.name == "Level2")
         {
             if (!p1.activeInHierarchy && !p2.activeInHierarchy)
             {
-                SceneManager.LoadScene("Boss");
+                if (!loseCanvas.activeInHierarchy)
+                {
+                	winCanvas.SetActive(true);
+                }
             }
         }
     }
@@ -39,9 +51,9 @@ public class GameManager : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
-            SceneManager.LoadScene("Level1");
+        	if (!loseCanvas.activeInHierarchy)
+            	winCanvas.SetActive(true);
         }
     }
-
     
 }

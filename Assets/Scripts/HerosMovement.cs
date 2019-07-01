@@ -32,14 +32,12 @@ public class HerosMovement : MonoBehaviour
     private Vector3 finalSpeed;
     private Vector3 lastFacing;
     public List<GameObject> currentCollisions;
-    bool tryingToJump;
     public bool death;
     
 
     // Start is called before the first frame update
     public virtual void Start()
     {        
-        tryingToJump = false;
         currentCollisions = new List<GameObject>();
         lastFacing = Vector3.right;
         horizontalAxisName = horizontalAxisName + player;       
@@ -168,7 +166,7 @@ public class HerosMovement : MonoBehaviour
             {                
                 isOnAir = false;
                 grounded = true;
-                tryingToJump = false;
+                
 
                 if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
                 {                   
@@ -186,7 +184,7 @@ public class HerosMovement : MonoBehaviour
             {                
                 isOnAir = false;
                 grounded = true;
-                tryingToJump = false;
+               
 
                 if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
                 {
@@ -205,13 +203,13 @@ public class HerosMovement : MonoBehaviour
 
         if (collision.gameObject.layer == 13)
         {
-            tryingToJump = true;
+     
             grounded = false;           
         }
 
         if (collision.gameObject.layer == 10)
         {
-            tryingToJump = true;
+      
             grounded = false;            
             transform.SetParent(null);            
         }

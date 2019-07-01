@@ -14,14 +14,14 @@ public class Cinta : MonoBehaviour
         {
             for (int i = 0; i < currentHero.Count; i++)
             {
-                currentHero[i].AddForce(transform.right * force, ForceMode2D.Impulse);
+                currentHero[i].AddForce(transform.right * force, ForceMode2D.Impulse);             
             }
         }
         else
         {
             for (int i = 0; i < currentHero.Count; i++)
             {
-                currentHero[i].AddForce(-transform.right * force, ForceMode2D.Impulse);
+                currentHero[i].AddForce(-transform.right * force, ForceMode2D.Impulse);          
             }
         }
     }

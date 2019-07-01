@@ -21,7 +21,7 @@ public class OxygenHeroMovement : HerosMovement
 
     private void DoubleJump()
     {
-        if (canDJ && !didDJ && (GetComponent<Damaggeable>().health > (oxygenCost + 5)))
+        if (canDJ && !didDJ && (GetComponent<Damaggeable>().health > (oxygenCost + 5)) && Input.GetKeyDown(jumpButton))
         {
             rb.velocity = Vector3.zero;
             rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);            
@@ -84,6 +84,7 @@ public class OxygenHeroMovement : HerosMovement
 
         if (collision.gameObject.layer == 13)
         {
+            canDJ = true;
             isOnAir = true;
             grounded = false;
         }

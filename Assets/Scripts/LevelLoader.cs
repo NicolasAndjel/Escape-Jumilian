@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {    
 
-    public void hola()
+    public void Close()
     {
-        Debug.Log("hola");
+        Application.Quit();
     }
     public void CargarNivel(string name)
     {     

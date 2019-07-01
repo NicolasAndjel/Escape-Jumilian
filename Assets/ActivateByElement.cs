@@ -23,14 +23,8 @@ public class ActivateByElement : MonoBehaviour
         }
         if (counter == ea.Length)
         {
-            active = true;           
+            active = true;
         }
         else active = false;
-
-        if (active)
-        {
-            anim.Play("Lift");
-        }
-        else anim.Play("Close");
     }
 }

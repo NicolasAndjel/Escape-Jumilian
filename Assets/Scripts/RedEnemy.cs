@@ -18,6 +18,7 @@ public class RedEnemy : MonoBehaviour
     public float tick;
     public float timeBtwHits;
     float timer;
+    bool done;
 
     // Start is called before the first frame update
     void Start()
@@ -75,16 +76,22 @@ public class RedEnemy : MonoBehaviour
     {
         if (stunt)
         {
+            if (!done)
+            {
+                anim.SetBool("Attacked", false);
+                Instantiate(stuntUI, transform.position, Quaternion.identity);
+                done = true;
+            }
             if (timer > 0)
             {
-                Instantiate(stuntUI, transform.position, Quaternion.identity);
-                em.speed = 0;
+                em.speed = 0;                
             }
             else stunt = false;
             timer -= Time.deltaTime;
         }
         else
         {
+            done = false;
             em.speed = em.saveSpeed;
             timer = timeStunt;
         }
@@ -96,6 +103,7 @@ public class RedEnemy : MonoBehaviour
         if (collision.gameObject.layer == 18)
         {
             stunt = true;
+            anim.SetBool("Attacked", true);
         }
     }
 }

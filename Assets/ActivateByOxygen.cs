@@ -21,16 +21,11 @@ public class ActivateByOxygen : MonoBehaviour
             }
             else return;
         }
+
         if (counter == ea.Length)
         {
             active = true;
         }
-        else active = false;
-
-        if (active)
-        {
-            anim.Play("Lift");
-        }
-        else anim.Play("Close");
+        else active = false;       
     }
 }

@@ -7,25 +7,24 @@ public class Lift : MonoBehaviour
     public ActivateByOxygen abo;
     public ActivateByElement abe;
     public SpriteRenderer pj;
+    public Animator anim;
 
+
+    public void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     public void Update()
-    {
-        if (abo != null)
+    {       
+        if (abe.active && abo.active)     
+            anim.Play("Lift");     
+        else anim.Play("Close");
+        
+        if (abo.active && abe.active && pj != null)
         {
-            if (abo.active && pj != null)
-            {
-                pj.gameObject.SetActive(false);
-            }
+            pj.gameObject.SetActive(false);
         }
-        else if (abe != null)
-        {
-            if (abe.active && pj != null)
-            {
-                pj.gameObject.SetActive(false);
-            }
-        }
-
     }
 
 

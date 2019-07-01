@@ -18,17 +18,20 @@ public class MosquitoBrain : Platform
     public Spawner sp;
     public float timer;
     public float timeToAttack;
+    public SpriteRenderer sr;
 
     public override void Start()
     {
         base.Start();
+        sr = GetComponent<SpriteRenderer>();
         currentState = States.PATROL;
         on = true;
         direction = 1;
     }
 
     public override void Update()
-    {        
+    {       
+    	 
         if (currentState == States.PATROL)
         {
             base.Update();
@@ -52,6 +55,12 @@ public class MosquitoBrain : Platform
             Destroy(gameObject);
         }
         else if (collision.gameObject.layer == 25)
+        {
+            Instantiate(poof, transform.position, Quaternion.identity);
+            sp.counter--;
+            Destroy(gameObject);
+        } 
+        else if (collision.gameObject.layer == 18)
         {
             Instantiate(poof, transform.position, Quaternion.identity);
             sp.counter--;

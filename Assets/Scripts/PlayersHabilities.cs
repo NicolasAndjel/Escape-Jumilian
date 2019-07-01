@@ -25,7 +25,7 @@ public class PlayersHabilities : MonoBehaviour
     // Start is called before the first frame update
     public virtual void Start()
     {       
-        shotTime = shot.averageDuration;
+        shotTime = shot.averageDuration / 2;
         hm = GetComponent<HerosMovement>();
         fireButton += hm.player;
         pickUpButton += hm.player;

@@ -12,6 +12,7 @@ public class ElementalActivator : MonoBehaviour
     public GameObject ObjToActivate;
     public GameObject uI;
     public PlayersHabilities currentPlayer;
+    public bool notActivates;
     float timer;
     float startSize;
     bool canBeFilled;
@@ -40,11 +41,11 @@ public class ElementalActivator : MonoBehaviour
 
         uI.transform.localScale = new Vector3(uI.transform.localScale.x, (startSize * (amountToFill/startSize)), uI.transform.localScale.z);
 
-        if (filled)
+        if (filled && !notActivates)
         {
             ObjToActivate.SetActive(true);
         }
-        else ObjToActivate.SetActive(false);
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -66,6 +67,8 @@ public class ElementalActivator : MonoBehaviour
 
     private void Fill()
     {
+	if (currentPlayer != null)
+	{
         if (currentPlayer.gameObject.layer == layerToGetActivated)
         {            
             if (Input.GetButton(currentPlayer.useButton))
@@ -79,5 +82,6 @@ public class ElementalActivator : MonoBehaviour
                 timer += Time.deltaTime;
             }          
         }
+	}
     }
 }

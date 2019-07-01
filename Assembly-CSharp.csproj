@@ -82,6 +82,7 @@
     <Compile Include="Assets\GabrielAguiarProductions\Unique_Projectiles_Volume_1\Scripts\SaveParticleSystemScript.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Unique_Projectiles_Volume_1\Scripts\Serializables.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Unique_Projectiles_Volume_1\Scripts\SpawnProjectilesScript.cs" />
+    <Compile Include="Assets\Gatetrigger.cs" />
     <Compile Include="Assets\Lift.cs" />
     <Compile Include="Assets\Menu\Scripts\AnimatorFunctions.cs" />
     <Compile Include="Assets\Menu\Scripts\MenuButton.cs" />

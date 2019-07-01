@@ -62,7 +62,11 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
-        if (ac.active)
+    	if (p1 == null || p2 == null)
+    	{
+    		state = AnimationState.LOSE;
+    	}
+    	if (ac.active)
         {
             state = AnimationState.GETHIT;
             for (int i = 0; i < anims.Length; i++)
@@ -91,9 +95,9 @@ public class Boss : MonoBehaviour
             if (!didGetTime)
             {
                 GetAnimTime();
-                if (animTime > 5)
+                if (animTime > 3)
                 {
-                    animTime = 5;
+                    animTime = 3;
                 }
                 didGetTime = true;
             }
@@ -186,6 +190,11 @@ public class Boss : MonoBehaviour
         {
             life--;
             CanGetDamage = false;
+            anim.SetBool("Hitted", false);
+            didGetTime = false;
+            animatorTimer = 0;
+            shotsTimer = 0;
+            ResetScene();
             state = AnimationState.IDLE;
         }
     }
@@ -214,7 +223,10 @@ public class Boss : MonoBehaviour
     {
         if (collision.gameObject.layer == 18)
         {
-            CanGetDamage = true;            
+            if (state == AnimationState.GETHIT)
+            {
+                CanGetDamage = true;
+            }
         }
     }
 }
