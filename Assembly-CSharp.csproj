@@ -87,6 +87,7 @@
     <Compile Include="Assets\Menu\Scripts\AnimatorFunctions.cs" />
     <Compile Include="Assets\Menu\Scripts\MenuButton.cs" />
     <Compile Include="Assets\Menu\Scripts\MenuButtonController.cs" />
+    <Compile Include="Assets\NextClip.cs" />
     <Compile Include="Assets\Press.cs" />
     <Compile Include="Assets\ResourceLift.cs" />
     <Compile Include="Assets\SceneManagement.cs" />

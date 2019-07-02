@@ -160,22 +160,17 @@ public class HerosMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        foreach (ContactPoint2D hitPos in collision.contacts)
+        if (collision.gameObject.layer == 10)
         {
-            if (hitPos.normal.y == 1)
-            {                
-                isOnAir = false;
+            if (!isOnAir)
+            {
                 grounded = true;
-                
-
-                if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
-                {                   
-                    transform.SetParent(collision.transform);
-                }
+                isOnAir = false;
             }
         }
+       
     }
-
+    
     private void OnCollisionStay2D(Collision2D collision)
     {
         foreach (ContactPoint2D hitPos in collision.contacts)
@@ -183,8 +178,7 @@ public class HerosMovement : MonoBehaviour
             if (hitPos.normal.y == 1)
             {                
                 isOnAir = false;
-                grounded = true;
-               
+                grounded = true;               
 
                 if (collision.gameObject.layer == 10 || collision.gameObject.layer == 19)
                 {
@@ -209,9 +203,11 @@ public class HerosMovement : MonoBehaviour
 
         if (collision.gameObject.layer == 10)
         {
-      
-            grounded = false;            
-            transform.SetParent(null);            
+            if (!isOnAir)
+            {
+                grounded = false;
+                transform.SetParent(null);
+            }             
         }
 
         if (collision.gameObject.layer == 19)

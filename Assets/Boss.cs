@@ -46,7 +46,7 @@ public class Boss : MonoBehaviour
     void Start()
     {
         startBoxPosition = box.position;
-        redStartPosition = redEnemyInGame.transform.position; ;
+        redStartPosition = redEnemyInGame.transform.parent.position;
         state = AnimationState.IDLE;
         shotsTimer = 0;
         anim = GetComponent<Animator>();

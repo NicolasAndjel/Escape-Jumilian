@@ -93,4 +93,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToSpawn: 10
-  prefab: {fileID: 3010958915680144961, guid: 5f3794478d9c9df45a72eaba3c423883, type: 3}
+  prefab: {fileID: 1184656823, guid: 3b6178c4f4d1bed42924332312838682, type: 3}
+  counter: 0
+  maxSpawn: 3

@@ -22,7 +22,8 @@ public class ElementalActivator : MonoBehaviour
         startSize = uI.transform.localScale.y;
         amountToFill = startSize;
     }
-    // Update is called once per frame
+
+
     void Update()
     {
 
@@ -37,9 +38,10 @@ public class ElementalActivator : MonoBehaviour
         {
             Fill();
         }
+        else UnFill();
 
 
-        uI.transform.localScale = new Vector3(uI.transform.localScale.x, (startSize * (amountToFill/startSize)), uI.transform.localScale.z);
+        uI.transform.localScale = new Vector3(uI.transform.localScale.x, (startSize * (amountToFill/startSize))-2f, uI.transform.localScale.z);
 
         if (filled && !notActivates)
         {
@@ -67,21 +69,38 @@ public class ElementalActivator : MonoBehaviour
 
     private void Fill()
     {
-	if (currentPlayer != null)
-	{
-        if (currentPlayer.gameObject.layer == layerToGetActivated)
-        {            
-            if (Input.GetButton(currentPlayer.useButton))
-            { 
-                if (timer > timeToFill)
+	    if (currentPlayer != null)
+	    {
+            if (currentPlayer.gameObject.layer == layerToGetActivated)
+            {            
+                if (Input.GetButton(currentPlayer.useButton))
+                { 
+                    if (timer > timeToFill)
+                    {
+                        amountToFill-=0.5f/amountToFill;
+                        currentPlayer.GetComponent<Damaggeable>().health -= damageToCharater;
+                        timer = 0;
+                    }
+                    timer += Time.deltaTime;
+                }          
+            }
+	    }
+    }
+
+    private void UnFill()
+    {
+        if (!filled)
+        { 
+            if (timer > timeToFill)
+            {
+                amountToFill += 0.5f / amountToFill;                
+                timer = 0;
+                if (amountToFill > startSize)
                 {
-                    amountToFill-=0.5f/amountToFill;
-                    currentPlayer.GetComponent<Damaggeable>().health -= damageToCharater;
-                    timer = 0;
+                    amountToFill = startSize;
                 }
-                timer += Time.deltaTime;
-            }          
+            }
+            timer += Time.deltaTime;
         }
-	}
     }
 }
