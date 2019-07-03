@@ -12,16 +12,18 @@ public class OxygenHeroMovement : HerosMovement
     public override void Update()
     {
         base.Update();
-        CanDj();
-        if (isOnAir && Input.GetKeyDown(jumpButton))
-        {
+        CanDj();   
+        
+        if (( Input.GetKeyDown(jumpButton) || Input.GetButtonDown(ph.fireButton)))
+        {           
+            if (isOnAir)
             DoubleJump();
         }
     }
 
     private void DoubleJump()
     {
-        if (Input.GetKeyDown(jumpButton))
+        if (Input.GetKeyDown(jumpButton) || Input.GetButtonDown(ph.fireButton))
         {
             if (canDJ && !didDJ && (GetComponent<Damaggeable>().health > (oxygenCost + 5)))
             {

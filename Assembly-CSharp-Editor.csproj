@@ -84,6 +84,9 @@
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>D:/Videojuegos/Cuatrimestre 3/D&amp;P/Escape Jumillian Git/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
+      <HintPath>D:/Videojuegos/Cuatrimestre 3/D&amp;P/Escape Jumillian Git/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Program Files/Unity 2018/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>

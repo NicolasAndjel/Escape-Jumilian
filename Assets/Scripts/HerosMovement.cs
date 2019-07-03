@@ -21,6 +21,7 @@ public class HerosMovement : MonoBehaviour
     public float jumpForce;
     public bool enableCounterWind;
     public KeyCode jumpButton;
+    public KeyCode jumpButtonJoy;
     public float counterWindForce;
     public KeyCode counterWindButton;
     public float knockUpAmount; 
@@ -35,6 +36,7 @@ public class HerosMovement : MonoBehaviour
     public List<GameObject> currentCollisions;
     public bool death;
     public AudioClip jumpSound;
+    public PlayersHabilities ph;
     
 
     // Start is called before the first frame update
@@ -47,6 +49,7 @@ public class HerosMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         aS = GetComponent<AudioSource>();
+        ph = GetComponent<PlayersHabilities>();
         rb.gravityScale = gravity;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
@@ -59,7 +62,7 @@ public class HerosMovement : MonoBehaviour
 
             direction = Input.GetAxis(horizontalAxisName);
 
-            if (Input.GetKeyDown(jumpButton))
+            if (Input.GetKeyDown(jumpButton) || Input.GetButtonDown(ph.fireButton))
             {
                 if (grounded)
                     Jump();

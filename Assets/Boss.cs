@@ -79,8 +79,11 @@ public class Boss : MonoBehaviour
             }
         }    	
     	if (ac.active)
-        {      
+        {
+            counter = 0;
             done = false;
+            aS.volume = 1;
+            aS.Stop();
             state = AnimationState.GETHIT;           
             for (int i = 0; i < anims.Length; i++)
             {
@@ -111,6 +114,7 @@ public class Boss : MonoBehaviour
                 colorCounter = 0;
                 state = AnimationState.STEP;
                 counter = 0;
+                aS.PlayOneShot(aC[4]);
             }
         }
         else if (state == AnimationState.STEP)
@@ -142,8 +146,13 @@ public class Boss : MonoBehaviour
         {
             if (!done)
             {
+                aS.volume = 0.5f;
                 aS.PlayOneShot(aC[1]);
                 done = true;
+            }
+            if (!aS.isPlaying)
+            {
+                aS.volume = 1;
             }
             anim.SetBool("Step", false);
             if (!didGetTime)

@@ -49,7 +49,11 @@ public class ElementalActivator : MonoBehaviour
         {
             ObjToActivate.SetActive(true);
         }
-        else ObjToActivate.SetActive(false);
+        else
+        {
+            if (!notActivates)
+            ObjToActivate.SetActive(false);
+        }
        
     }
 

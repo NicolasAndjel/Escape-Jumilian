@@ -20,8 +20,6 @@ public class Press : MonoBehaviour
         {
             if (hitPos.normal.y == 1)
             {
-                Debug.Log(gameObject.name);
-                Debug.Log(hitPos.normal.y);
                 Instantiate(dust, spawn.position, Quaternion.identity);
                 if (collision.gameObject.layer == 8)
                 {

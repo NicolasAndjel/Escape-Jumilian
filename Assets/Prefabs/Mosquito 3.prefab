@@ -217,7 +217,7 @@ MonoBehaviour:
   life: 0
   currentState: 0
   currentTarget: {fileID: 0}
-  damage: 0
+  damage: 5
   sp: {fileID: 0}
   timer: 0
   timeToAttack: 0
