@@ -8,10 +8,12 @@ public class EnemiesMovement : Platform
     Vector3 facing;
     int lastDirection;
     SpriteRenderer sr;
+    AudioSource aS;
 
     public override void Start()
     {
         base.Start();
+        aS = GetComponent<AudioSource>();
         saveSpeed = speed;
         lastDirection = -direction;
         sr = GetComponent<SpriteRenderer>();
@@ -20,6 +22,7 @@ public class EnemiesMovement : Platform
     {
         Move();
         Facing();
+        MoveSound();
     }
 
     public void Facing()
@@ -33,6 +36,18 @@ public class EnemiesMovement : Platform
             sr.flipX = !sr.flipX;
         }
         lastDirection = direction;
+    }
+
+    private void MoveSound()
+    {
+        if (speed != 0)
+        {
+            if (!aS.isPlaying)
+            {
+                aS.Play();
+            }
+        }
+        else aS.Stop();
     }
 
     public override void Move()

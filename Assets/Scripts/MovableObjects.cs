@@ -16,11 +16,7 @@ public class MovableObjects : MonoBehaviour
         if (collision.gameObject.layer == 13 || collision.gameObject.layer == 10)
         {
             transform.SetParent(collision.gameObject.transform);            
-        }
-        if (collision.gameObject.layer == 14)
-        {
-            rb.AddForce(-rb.velocity * 500, ForceMode2D.Impulse);
-        }
+        }        
     }
 
 

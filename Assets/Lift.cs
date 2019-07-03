@@ -8,17 +8,25 @@ public class Lift : MonoBehaviour
     public ActivateByElement abe;
     public SpriteRenderer pj;
     public Animator anim;
-
-
+    AudioSource aS;
+    bool done;
     public void Awake()
     {
+        aS = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
     }
 
     public void Update()
     {       
-        if (abe.active && abo.active)     
-            anim.Play("Lift");     
+        if (abe.active && abo.active)
+        {
+            anim.Play("Lift");
+            if (!done)
+            {
+                aS.Play();
+                done = true;
+            }
+        }
         else anim.Play("Close");
         
         if (abo.active && abe.active && pj != null)

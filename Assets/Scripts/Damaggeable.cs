@@ -31,6 +31,10 @@ public class Damaggeable : MonoBehaviour
     public float uiIimer = 2;
     float timer;
     float deadTime;
+    AudioSource aS;
+    public AudioClip deathSound;
+    AudioClip walk;
+    bool done;
 
     private void Start()
     {
@@ -43,6 +47,8 @@ public class Damaggeable : MonoBehaviour
         {
             ph = GetComponent<HerosMovement>();
         }
+        aS = GetComponent<AudioSource>();
+        walk = aS.clip;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
@@ -64,6 +70,10 @@ public class Damaggeable : MonoBehaviour
         }                
     }
 
+    private void DeathSound()
+    {
+        aS.PlayOneShot(deathSound);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -86,15 +96,20 @@ public class Damaggeable : MonoBehaviour
     }
 
     public void GetDamage(float amount)
-    {        
+    {
+        if (!done)
+        {
+            DeathSound();
+            done = true;
+        }
         health -= amount;
         sr.color = ColorWhenDamaged;
         didColored = false;        
     }
 
     private void DeSpawn()
-    {
-        Destroy(gameObject, 2);
+    {                
+        Destroy(gameObject, 2);             
     }
 
     public void Die()
@@ -116,10 +131,8 @@ public class Damaggeable : MonoBehaviour
             }
         }
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        bc.enabled = false;  
-        
-        anim.Play("Die");
-        
+        bc.enabled = false;          
+        anim.Play("Die");        
         dead = true;       
         sr.color = startColor;
     }
@@ -163,16 +176,17 @@ public class Damaggeable : MonoBehaviour
             {
                 losingLifeUI.SetActive(false);
             }
-        }
+        }        
         if (!didColored)
         {
             if (!enemie)
             {
-                if (timer > 0.5)
+                if (timer > 1)
                 {
                     sr.color = startColor;
                     didColored = true;
                     timer = 0;
+                    done = false;
                 }
                 timer += Time.deltaTime;
             }
@@ -182,7 +196,7 @@ public class Damaggeable : MonoBehaviour
                 {
                     sr.color = startColor;
                     didColored = true;
-                    timer = 0.6f;
+                    timer = 0.6f;                                       
                 }
                 timer += Time.deltaTime;
             }

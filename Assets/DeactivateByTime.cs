@@ -34,7 +34,8 @@ public class DeactivateByTime : MonoBehaviour
                     timer = 0;
                 }
             }
-            else timer = 0;
+            else if (ac.active && ea.filled)
+                timer = 0;
         }
         else
         {
@@ -47,7 +48,8 @@ public class DeactivateByTime : MonoBehaviour
                     timer = 0;
                 }
             }
-            else timer = 0;
+            else if (ea.filled && ac.active)
+                 timer = 0;
         }
         
     }

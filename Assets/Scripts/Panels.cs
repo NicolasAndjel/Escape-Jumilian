@@ -8,6 +8,7 @@ public class Panels : Activables
     public SpriteRenderer lights;
     public Sprite lightSpriteActive;
     public Sprite startSprite;
+    
 
     public override void Start()
     {

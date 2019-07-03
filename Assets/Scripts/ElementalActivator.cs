@@ -14,11 +14,13 @@ public class ElementalActivator : MonoBehaviour
     public PlayersHabilities currentPlayer;
     public bool notActivates;
     float timer;
-    float startSize;
+    public float startSize;
     bool canBeFilled;
+    AudioSource aS;
 
     private void Start()
     {
+        aS = GetComponent <AudioSource>();
         startSize = uI.transform.localScale.y;
         amountToFill = startSize;
     }
@@ -47,6 +49,7 @@ public class ElementalActivator : MonoBehaviour
         {
             ObjToActivate.SetActive(true);
         }
+        else ObjToActivate.SetActive(false);
        
     }
 
@@ -77,6 +80,10 @@ public class ElementalActivator : MonoBehaviour
                 { 
                     if (timer > timeToFill)
                     {
+                        if (!aS.isPlaying)
+                        {
+                            aS.Play();
+                        }
                         amountToFill-=0.5f/amountToFill;
                         currentPlayer.GetComponent<Damaggeable>().health -= damageToCharater;
                         timer = 0;
@@ -93,7 +100,7 @@ public class ElementalActivator : MonoBehaviour
         { 
             if (timer > timeToFill)
             {
-                amountToFill += 0.5f / amountToFill;                
+                amountToFill += 0.1f / amountToFill;                
                 timer = 0;
                 if (amountToFill > startSize)
                 {

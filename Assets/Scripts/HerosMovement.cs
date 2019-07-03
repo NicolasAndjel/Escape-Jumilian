@@ -13,6 +13,7 @@ public class HerosMovement : MonoBehaviour
     public Rigidbody2D rb;
     SpriteRenderer sr;    
     public Animator anim;
+    public AudioSource aS;
     public string player;
     public string horizontalAxisName;
     public float speed;
@@ -33,6 +34,7 @@ public class HerosMovement : MonoBehaviour
     private Vector3 lastFacing;
     public List<GameObject> currentCollisions;
     public bool death;
+    public AudioClip jumpSound;
     
 
     // Start is called before the first frame update
@@ -44,6 +46,7 @@ public class HerosMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        aS = GetComponent<AudioSource>();
         rb.gravityScale = gravity;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
@@ -70,9 +73,25 @@ public class HerosMovement : MonoBehaviour
             SetFacing(direction);
 
             Move(direction);
-        }        
+        }
+    }
 
-    }  
+    private void LateUpdate()
+    {
+        MoveSound();
+    }
+
+    private void MoveSound()
+    {
+        if (direction != 0 && grounded)
+        {
+            if (!aS.isPlaying)
+            {
+                aS.Play();
+            }
+        }
+    }
+
     private void SetFacing(float horizontal)
     {
         if (horizontal < 0)
@@ -119,7 +138,8 @@ public class HerosMovement : MonoBehaviour
         isOnAir = true;
         rb.velocity = Vector3.zero;
         rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-        grounded = false;   
+        grounded = false;
+        aS.PlayOneShot(jumpSound);
     }
 
     private void CounterWind()

@@ -25,6 +25,7 @@ public class OxygenHeroMovement : HerosMovement
         {
             if (canDJ && !didDJ && (GetComponent<Damaggeable>().health > (oxygenCost + 5)))
             {
+                aS.PlayOneShot(jumpSound);
                 rb.velocity = Vector3.zero;
                 rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
                 grounded = false;

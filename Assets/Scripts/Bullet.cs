@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     public float time;
     public int dir;
     public float damage;
-
+    
     // Start is called before the first frame update
     void Start()
     {

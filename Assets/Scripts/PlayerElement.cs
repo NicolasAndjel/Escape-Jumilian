@@ -39,17 +39,15 @@ public class PlayerElement : MonoBehaviour
     public virtual void Update()
     {
         if ((dm.health < (dm.maxH * 0.3)) && ((distance > 2) && pho != null))
-        {
-            if (!pointer.activeInHierarchy)
-                pointer.SetActive(true);
-                PointToAlly();
+        {            
+            pointer.SetActive(true);
+            PointToAlly();
         }
         else
         {
-            if (pointer.activeInHierarchy)
-            {
-                pointer.SetActive(false);
-            }
+          
+          pointer.SetActive(false);
+            
         }
         PowerOverTime();
         Refill();
@@ -58,10 +56,13 @@ public class PlayerElement : MonoBehaviour
 
     public void PointToAlly()
     {
-        otherpjdir = pho.transform.position - transform.position;
-        float angle = Mathf.Atan2(otherpjdir.y, otherpjdir.x) * Mathf.Rad2Deg;
-        Quaternion rotate = Quaternion.AngleAxis(angle, Vector3.forward);
-        pointer.transform.rotation = Quaternion.Slerp(transform.rotation, rotate, 1);
+        if (pho != null)
+        {
+            otherpjdir = pho.transform.position - transform.position;
+            float angle = Mathf.Atan2(otherpjdir.y, otherpjdir.x) * Mathf.Rad2Deg;
+            Quaternion rotate = Quaternion.AngleAxis(angle, Vector3.forward);
+            pointer.transform.rotation = Quaternion.Slerp(transform.rotation, rotate, 1);
+        }        
     }
 
     public void PowerOverTime()
@@ -96,6 +97,7 @@ public class PlayerElement : MonoBehaviour
             }
             else healingUi.SetActive(false);
         }
+        else healingUi.SetActive(false);
     }
 
     public Transform GetCostSpawn()

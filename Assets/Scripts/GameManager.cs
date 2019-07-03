@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public bool boss;
     public GameObject winCanvas;
     public GameObject loseCanvas;
+    public Boss bossScript;
     
     // Start is called before the first frame update
     void Start()
@@ -24,15 +25,27 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
-        if (!boss)
-        {
-	    	if(p1 == null || p2 == null)
+        
+	    if(p1 == null || p2 == null)
+		{
+			if(!winCanvas.activeInHierarchy)
 			{
-				if(!winCanvas.activeInHierarchy)
-				{
-					loseCanvas.SetActive(true);
-				}
-			}		
+				loseCanvas.SetActive(true);
+			}
+		}		
+        
+        if (boss)    
+        {
+            if (bossScript.state == Boss.AnimationState.WIN)
+            {
+                winCanvas.SetActive(true);
+                loseCanvas.SetActive(false);
+            }                            
+            else if (bossScript.state == Boss.AnimationState.LOSE)
+            {
+                loseCanvas.SetActive(true);
+                winCanvas.SetActive(false);
+            }
         }
 
         if (scene.name == "Level2")

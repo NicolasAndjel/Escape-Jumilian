@@ -14,6 +14,8 @@ public class Boss : MonoBehaviour
         WIN,
         LOSE
     }
+
+    public SpriteRenderer sr;
     public GameObject p1;
     public GameObject p2;
     public GameObject winCanvas;
@@ -42,33 +44,44 @@ public class Boss : MonoBehaviour
     public Vector3 startBoxPosition;
     public float timeToAttack;
     float counter;
+    float colorCounter;
+    public AudioClip[] aC;
+    public AudioSource aS;
+    bool done;
 
     void Start()
     {
+        colorCounter = 0;
         startBoxPosition = box.position;
         redStartPosition = redEnemyInGame.transform.parent.position;
         state = AnimationState.IDLE;
         shotsTimer = 0;
+        aS = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void GetAnimTime()
     {
         AnimatorStateInfo animationState = anim.GetCurrentAnimatorStateInfo(0);
         AnimatorClipInfo[] myAnimatorClip = anim.GetCurrentAnimatorClipInfo(0);
-        animTime = myAnimatorClip[0].clip.length * animationState.normalizedTime;
-        
+        animTime = myAnimatorClip[0].clip.length * animationState.normalizedTime;        
     }
 
     void Update()
     {
-    	if (p1 == null || p2 == null)
-    	{
-    		state = AnimationState.LOSE;
-    	}
-    	if (ac.active)
+
+        if (state != AnimationState.WIN)
         {
-            state = AnimationState.GETHIT;
+            if (p1 == null || p2 == null)
+            {
+                state = AnimationState.LOSE;
+            }
+        }    	
+    	if (ac.active)
+        {      
+            done = false;
+            state = AnimationState.GETHIT;           
             for (int i = 0; i < anims.Length; i++)
             {
                 anims[i].SetBool("Active", false);
@@ -82,15 +95,30 @@ public class Boss : MonoBehaviour
 
         if (state == AnimationState.IDLE)
         {
+            if (!aS.isPlaying)
+            {
+                aS.PlayOneShot(aC[3]);
+            }
+            if (colorCounter > 1)
+            {
+                sr.color = Color.white;
+            }
+            colorCounter += Time.deltaTime;
+            sr.color = Color.white;
             counter += Time.deltaTime;
             if (counter > timeToAttack)
             {
+                colorCounter = 0;
                 state = AnimationState.STEP;
                 counter = 0;
             }
         }
         else if (state == AnimationState.STEP)
         {
+            if (!aS.isPlaying)
+            {
+                aS.PlayOneShot(aC[0]);
+            }
             anim.SetBool("Step", true);
             if (!didGetTime)
             {
@@ -112,6 +140,11 @@ public class Boss : MonoBehaviour
         }
         else if (state == AnimationState.ATTACK)
         {
+            if (!done)
+            {
+                aS.PlayOneShot(aC[1]);
+                done = true;
+            }
             anim.SetBool("Step", false);
             if (!didGetTime)
             {
@@ -120,17 +153,22 @@ public class Boss : MonoBehaviour
             }
             Shot();
             animatorTimer += Time.deltaTime;
-            if (animatorTimer > animTime)
+            if (animatorTimer > 6)
             {
                 anim.SetBool("Attaking", false);
                 state = AnimationState.IDLE;
                 didGetTime = false;
                 animatorTimer = 0;
                 shotsTimer = 0;
+                done = false;
             }
         }
         else if (state == AnimationState.GETHIT)
         {
+            if (!done)
+            {
+                aS.PlayOneShot(aC[2]);
+            }
             anim.SetBool("Hitted", true);
             if (!didGetTime)
             {
@@ -146,10 +184,15 @@ public class Boss : MonoBehaviour
                 animatorTimer = 0;
                 shotsTimer = 0;
                 ResetScene();
+                done = false;
             }
         }
         else if (state == AnimationState.DEATH)
         {
+            if (!done)
+            {
+                aS.PlayOneShot(aC[2]);
+            }
             anim.Play("DeadBoss");
             if (!didGetTime)
             {
@@ -159,17 +202,12 @@ public class Boss : MonoBehaviour
             animatorTimer += Time.deltaTime;
             if (animatorTimer > animTime)
             {
+                didGetTime = false;
+                animatorTimer = 0;
+                shotsTimer = 0;
                 state = AnimationState.WIN;
             }
-        }
-        else if (state == AnimationState.WIN)
-        {
-            winCanvas.SetActive(true);
-        }
-        else if (state == AnimationState.LOSE)
-        {
-            loseCanvas.SetActive(true);
-        }
+        }        
     }
 
     public void Shot()
@@ -195,6 +233,7 @@ public class Boss : MonoBehaviour
             animatorTimer = 0;
             shotsTimer = 0;
             ResetScene();
+            colorCounter = 0;
             state = AnimationState.IDLE;
         }
     }
@@ -214,6 +253,7 @@ public class Boss : MonoBehaviour
             panel[i].active = false;
         }
         ea.filled = false;
+        ea.amountToFill = ea.startSize;
         box.position = startBoxPosition;
         state = AnimationState.IDLE;
     }
@@ -225,6 +265,8 @@ public class Boss : MonoBehaviour
         {
             if (state == AnimationState.GETHIT)
             {
+                colorCounter = 0;
+                sr.color = Color.red;
                 CanGetDamage = true;
             }
         }

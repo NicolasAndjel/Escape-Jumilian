@@ -5,12 +5,25 @@ using UnityEngine;
 public class DestroyByTime : MonoBehaviour
 {
     public bool active;
-    public float time;   
+    public float time;
+    public AudioSource aS;
     
     void Start()
     {
-        if (active)
-        Destroy(gameObject, time);
+        aS = GetComponent<AudioSource>();
+        if (aS == null)
+        {
+            if (active)
+                Destroy(gameObject, time);
+        }
+        else
+        {
+            if (!aS.isPlaying)
+            {
+                Destroy(gameObject);
+            }
+        }
+       
     }
    
 }

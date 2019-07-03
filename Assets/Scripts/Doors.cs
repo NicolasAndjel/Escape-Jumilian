@@ -9,9 +9,12 @@ public class Doors : Activables
     public SpriteRenderer[] lightsObject;
     private SpriteRenderer sr;
     private BoxCollider2D bc;
+    public AudioSource aS;
+    bool done;
 
     public void Awake()
     {
+        aS = GetComponent<AudioSource>();
         sr = GetComponent<SpriteRenderer>();
         bc = GetComponent<BoxCollider2D>();
     }
@@ -31,9 +34,17 @@ public class Doors : Activables
         LightsUI();
         if (active)
         {
+            if (!done)
+            {
+                aS.Play();
+                done = true;
+            }
             Open();
         }
-        else Close();        
+        else
+        {           
+            Close();
+        }     
     }
 
     private void LightsUI()
@@ -53,7 +64,7 @@ public class Doors : Activables
 
     private void Close()
     {
-        
+        done = false;
         if (UseButtonsOnly)
         {
             for (int i = 0; i < lightsObject.Length; i++)
